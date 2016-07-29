@@ -1,0 +1,88 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<!--
+`unit-sel`
+Documenting Elements
+
+@demo demo/index.html 
+-->
+
+<dom-module id="unit-sel">
+  <template>
+    <style>
+      :host {
+        display: flex;
+		padding: 0 !important;
+		margin: 0 !important;
+		border: 0 !important;
+		width: inherit;
+          max-width: min-content;
+          height: min-content;
+		background-color: inherit;
+		
+      }
+	  #unitselect{
+		display: flex;
+		padding: 0px  !important;
+            padding-left: 3px;
+            padding-right: 5px;
+		margin: 0  !important;
+		border: 0 solid #000  !important;
+		outline: none;
+          height: min-content;
+          max-width: 42px;
+		box-shadow: 0px -2px 5px 0px #c6c6c6 inset;
+		background-color: inherit;
+		font-weight: 200;
+		font-size: 0.9em;
+	  }
+    </style>
+    <input type="text" list$="[[set]]" id="unitselect" class="notform" value="{{value}}"/>
+	<datalist id="metric">
+			<option id="" class="" value="km">
+            <option id="" class="" value="m">
+            <option id="" class="" value="cm">
+            <option id="" class="" value="mm">
+	</datalist>
+	<datalist id="imperial">
+            <option id="" class="" value="in">
+            <option id="" class="" value="ft">
+            <option id="" class="" value="yd">
+	</datalist>
+	<datalist id="all">
+			<option id="" class="" value="km">
+            <option id="" class="" value="m">
+            <option id="" class="" value="dm">
+            <option id="" class="" value="cm">
+            <option id="" class="" value="mm">
+            <option id="" class="" value="in">
+            <option id="" class="" value="ft">
+            <option id="" class="" value="yd">
+	</datalist>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'unit-sel',
+
+      properties: {
+        set: {
+          type: String,
+          value: 'all'
+		  //Either `metirc`, `imperial`, or `all`
+        },
+		value: {
+			type: String
+		},
+      },
+
+        attached : function() {
+          var $$ = Polymer.dom(this.root);
+            var egg = $$.querySelector('#unitselect');
+            egg.classList.remove('form-control');
+        }
+
+    });
+  </script>
+</dom-module>

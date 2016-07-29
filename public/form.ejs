@@ -1,0 +1,414 @@
+<!doctype html>
+<html>
+<head>
+    <title><%=title%></title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="../public/javascript/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <style>
+        .form{
+            border: 2.5px solid red;
+            padding: 15px;
+            margin: 25px;
+        }
+        .form.section{
+            border: 2px solid blue;
+            padding: 15px;
+        }
+        .form.input{
+            border: 1px solid grey;
+            padding: 3px;
+            margin: 3.367px;
+        }
+        .form.input.line{
+            border: 0px solid white;
+            border-bottom: 1px solid black;
+        }
+        .form.input.small{
+            width: 50%;
+        }
+        .form.input.smaller{
+            width: 25%;
+        }
+        .label{
+            font-weight: bold;
+        }
+        .label:after{
+            content: ':';
+        }
+        .label.head{
+            font-size: large;
+        }
+        .label.head.h1{
+            font-size: 2.4em;
+        }
+        .label.head.h2{
+            font-size: 1.8em;
+        }
+        .label.head.h3{
+            font-size: 1.6em;
+        }
+        .label.head.h4{
+            font-size: 1.2em;
+        }
+        table tr td:nth-child(1){
+            font-weight: bold;
+        }
+        .disabled{
+            color: grey;
+            cursor: not-allowed;
+            background-color: #CACECF;
+        }
+    </style>
+</head>
+<body>
+<form action="" method="" class="form">
+    <section class="form section" id="">
+        <label class="label head h1">Physical Data</label>
+
+        <fieldset id="">
+            <label class="label head h2">Tide Measurement</label>
+
+            <div id="" class="">
+                <label for="" class="label">Fill out the table with your data</label>
+
+                <table id="" class="table" border="1">
+                    <thead id="" class="">
+                    <tr id="" class="">
+                        <th id="" class="">Time</th>
+                        <th id="" class="">Verticle Tide Change</th>
+                        <th id="" class="">Rising, Falling, or Unchanged</th>
+                    </tr>
+                    </thead>
+                    <tbody id="" class="">
+                    <!-- <input required id="" class="" name="" type=""  placeholder=""/> -->
+                    <tr id="" class="">
+                        <td id="" class="">0</td>
+                        <td id="" class=""><input required id="" class="" name="" type="number" max="30" min="0" placeholder="0"/>units</td>
+                        <td id="" class=""><input required list="tideTableOptions" name="" id="" class="" /></td>
+                    </tr>
+                    <tr id="" class="">
+                        <td id="" class="">10</td>
+                        <td id="" class=""><input required id="" class="" name="" type="number" max="30" min="0" placeholder="0"/>units</td>
+                        <td id="" class=""><input required list="tideTableOptions" name="" id="" class="" /></td>
+                    </tr>
+                    <tr id="" class="">
+                        <td id="" class="">20</td>
+                        <td id="" class=""><input required id="" class="" name="" type="number" max="30" min="0" placeholder="0"/>units</td>
+                        <td id="" class=""><input required list="tideTableOptions" name="" id="" class="" /></td>
+                    </tr>
+                    <tr id="" class="">
+                        <td id="" class="">30</td>
+                        <td id="" class=""><input required id="" class="" name="" type="number" max="30" min="0" placeholder="0"/>units</td>
+                        <td id="" class=""><input required list="tideTableOptions" name="" id="" class="" /></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="" id="">
+                    <label class="label">Overall Tide Change </label>
+                    <input required id="" class="form input line" name="" type="text"  placeholder=""/>units
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset id="">
+            <label class="label head h2">Current Direction and Speed</label>
+
+            <div id="" class="">
+                <label for="" class="label">Water Current Direction</label><input list="cardinalDirectionsSimple" name="" placeholder="" id="" class="form input line"/>
+            </div>
+            <div id="" class="">
+                <label for="" class="label">Type of Object used       </label><input type="text" name="" placeholder="" id="" class="form input line"/>
+            </div>
+            <div id="" class="">
+                <label for="" class="label">Current Speed(cm/sec)   </label><input type="" name="" placeholder="" id="" class="form input line"/>
+            </div>
+            <div id="" class="">
+                <label for="" class="label">Fill Out the following table with your data </label>
+                <table id="" class="" border="1">
+                    <thead>
+                    <tr id="" class="">
+                        <th id="" class=""></th>
+                        <th id="" class="">Location</th>
+                        <th id="" class="">Starting Time</th>
+                        <th id="" class="">Stopping Time</th>
+                        <th id="" class="">Distance Traveled</th>
+                        <th id="" class="">Direction</th>
+                        <th id="" class="">Current Speed(cm/sec)</th>
+                        <th id="" class="">Current Speed(knots)</th>
+                        <th id="" class="">Ebb, Flow, Slack, or Tide</th>
+                    </tr>
+                    </thead>
+                    <tbody id="" class="">
+                    <tr id="" class="">
+                        <td id="" class="">Trial 1</td>
+                        <td id="" class=""><input list="generalSpecificCurrentMeasureLocations"/></td>
+                        <td id="" class=""><input required id="" class="" name="" type="time"  placeholder=""/></td>
+                        <td id="" class=""><input required id="" class="" name="" type="time"  placeholder=""/></td>
+                        <td id="" class=""><input required id="" class="" name="" type="number" min="0" max="99"  placeholder=""/>(units)</td>
+                        <td id="" class="table body tr td shrink"><input list="cardinalDirectionsSimple" id="" class="form input small" name=""/></td>
+                        <td id="" class=""><input required id="" class="" name="" type="number" min="0" max="520"  placeholder=""/>(cm/sec)</td>
+                        <td id="" class=""><input required id="" class="" name="" type="number" min="0" max="520"  placeholder=""/>(knots)</td>
+                        <td id="" class=""><input list="tideTypes" id="" class="" name=""/></td>
+                    </tr>
+
+                    <tr id="" class="">
+                        <td id="" class="">Trial 2</td>
+                        <td id="" class=""><input list="generalSpecificCurrentMeasureLocations"/></td>
+                        <td id="" class=""><input required id="" class="" name="" type="time"  placeholder=""/></td>
+                        <td id="" class=""><input required id="" class="" name="" type="time"  placeholder=""/></td>
+                        <td id="" class=""><input required id="" class="" name="" type="number" min="0" max="99"  placeholder=""/>(units)</td>
+                        <td id="" class=""><input list="cardinalDirectionsSimple" id="" class="form input small" name=""/></td>
+                        <td id="" class=""><input required id="" class="" name="" type="number" min="0" max="520"  placeholder=""/>(cm/sec)</td>
+                        <td id="" class=""><input required id="" class="" name="" type="number" min="0" max="520"  placeholder=""/>(knots)</td>
+                        <td id="" class=""><input list="tideTypes" id="" class="" name=""/></td>
+                    </tr>
+
+                    <tr id="" class="">
+                        <td id="" class="">Trial 3</td>
+                        <td id="" class=""><input list="generalSpecificCurrentMeasureLocations"/></td>
+                        <td id="" class=""><input required id="" class="" name="" type="time"  placeholder=""/></td>
+                        <td id="" class=""><input required id="" class="" name="" type="time"  placeholder=""/></td>
+                        <td id="" class=""><input required id="" class="" name="" type="number" min="0" max="99"  placeholder=""/>(units)</td>
+                        <td id="" class=""><input list="cardinalDirectionsSimple" id="" class="form input small" name=""/></td>
+                        <td id="" class=""><input required id="" class="" name="" type="number" min="0" max="520"  placeholder=""/>(cm/sec)</td>
+                        <td id="" class=""><input required id="" class="" name="" type="number" min="0" max="520"  placeholder=""/>(knots)</td>
+                        <td id="" class=""><input list="tideTypes" id="" class="" name=""/></td>
+                    </tr>
+
+                    <tr id="" class="">
+                        <td id="" class="">Average</td>
+                        <td id="" class="disabled"></td>
+                        <td id="" class="disabled"></td>
+                        <td id="" class="disabled"></td>
+                        <td id="" class="disabled"></td>
+                        <td id="" class="disabled"></td>
+                        <td id="" class=""><input required id="" class="" name="" type="number" min="0" max="520"  placeholder=""/>(cm/sec)</td>
+                        <td id="" class=""><input required id="" class="" name="" type="number" min="0" max="520"  placeholder=""/>(knots)</td>
+                        <td id="" class="disabled"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </fieldset>
+
+        <fieldset id="">
+            <label class="label head h2">Air Tempturture, Clouds and Wind</label>
+
+            <div id="" class="">
+                <table id="" class="" border="1">
+                    <thead id="" class="">
+                    <tr id="" class="">
+                        <th id="" class="">Time</th>
+                        <th id="" class="">Air Temp(F)</th>
+                        <th id="" class="">Air Temp(C)</th>
+                    </tr>
+                    </thead>
+
+                    <tbody id="" class="">
+                    <tr id="" class="">
+                        <td id="" class=""><input required id="" class="" name="" type="time"  placeholder=""/></td>
+                        <td id="" class=""><input required id="" class="" name="" type="number" min="-20" max="999"  placeholder=""/>&deg;F</td>
+                        <td id="" class=""><input required id="" class="" name="" type="number" min="-20" max="999"  placeholder=""/>&deg;C</td>
+                    </tr>
+                    <tr id="" class="">
+                        <td id="" class=""><input required id="" class="" name="" type="time"  placeholder=""/></td>
+                        <td id="" class=""><input required id="" class="" name="" type="number" min="-20" max="999"  placeholder=""/>&deg;F</td>
+                        <td id="" class=""><input required id="" class="" name="" type="number" min="-20" max="999"  placeholder=""/>&deg;C</td>
+                    </tr>
+                    <tr id="" class="">
+                        <td id="" class=""><input required id="" class="" name="" type="time"  placeholder=""/></td>
+                        <td id="" class=""><input required id="" class="" name="" type="number" min="-20" max="999"  placeholder=""/>&deg;F</td>
+                        <td id="" class=""><input required id="" class="" name="" type="number" min="-20" max="999"  placeholder=""/>&deg;C</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="" class="">
+                <label for="" class="label head h3">Estimate Cloud Coverage</label><br/>
+                <input type="radio" name="same" placeholder="" id="" class="" value="clear"/><label>Clear(0-25%)</label><br/>
+                <input type="radio" name="same" placeholder="" id="" class="" value="partly"/><label>Partly Cloudy(25-50%)</label><br/>
+                <input type="radio" name="same" placeholder="" id="" class="" value="mostly"/><label>Mostly Cloudy(50-75%)</label><br/>
+                <input type="radio" name="same" placeholder="" id="" class="" value="overcast"/><label>Overcast(75-100%)</label>
+            </div>
+
+            <div id="" class="">
+                <label class="label">Wind Direction</label><input required id="" class="form input line" name="" list="cardinalDirections"  placeholder=""/><br/>
+                <label class="label">Wind Speed(mph)</label><input required id="" class="form input line" name="" type="number" min="0" max="99"  placeholder=""/><br/>
+                <label class="label">Wind Speed(knots)</label><input required id="" class="form input line" name="" type="number" min="0" max="99"  placeholder=""/><br/>
+                <label class="label">Year, Month</label><input required id="" class="form input line" name="" type="month"  placeholder=""/><br/>
+                <label class="label">Beaufort Description</label><input required id="" class="form input line" name="" list="beaufortScaleDescriptions"  placeholder=""/>
+            </div>
+
+
+        </fieldset>
+
+    </section>
+
+    <section class="form section" id="">
+        <label class="label head h1">Site Description</label>
+
+        <fieldset id="">
+            <label class="label head h2">Physical Description</label>
+
+            <div id="" class="">
+                <!-- A change may occur here later, this info may not stay -->
+                <label for="" class="label">Latitude</label><input type="number" min="40" max="99.99999"name="" placeholder="" id="" class="form input line"/><br/>
+                <label for="" class="label">Longitude</label><input type="number" min="40" max="99.99999" name="" placeholder="" id="" class="form input line"/>
+            </div>
+        </fieldset>
+
+        <fieldset id="">
+            <label class="label head h2">SUBSECT_TITLE</label>
+
+            <div id="" class="">
+                <label for="" class="label">INPUT_PURP</label><input type="" name="" placeholder="" id="" class=""/>
+            </div>
+        </fieldset>
+
+        <fieldset id="">
+            <label class="label head h2">SUBSECT_TITLE</label>
+
+            <div id="" class="">
+                <label for="" class="label">INPUT_PURP</label><input type="" name="" placeholder="" id="" class=""/>
+            </div>
+        </fieldset>
+
+    </section>
+
+    <section class="form section" id="">
+        <label class="label head h1">SECTION_TITLE</label>
+
+        <fieldset id="">
+            <label class="label head h2">SUBSECT_TITLE</label>
+
+            <div id="" class="">
+                <label for="" class="label">INPUT_PURP</label><input type="" name="" placeholder="" id="" class=""/>
+            </div>
+        </fieldset>
+
+        <fieldset id="">
+            <label class="label head h2">SUBSECT_TITLE</label>
+
+            <div id="" class="">
+                <label for="" class="label">INPUT_PURP</label><input type="" name="" placeholder="" id="" class=""/>
+            </div>
+        </fieldset>
+
+
+    </section>
+
+    <section class="form section" id="">
+        <label class="label head h1">SECTION_TITLE</label>
+
+        <fieldset id="">
+            <label class="label head h2">SUBSECT_TITLE</label>
+
+            <div id="" class="">
+                <label for="" class="label">INPUT_PURP</label><input type="" name="" placeholder="" id="" class=""/>
+            </div>
+        </fieldset>
+
+        <fieldset id="">
+            <label class="label head h2">SUBSECT_TITLE</label>
+
+            <div id="" class="">
+                <label for="" class="label">INPUT_PURP</label><input type="" name="" placeholder="" id="" class=""/>
+            </div>
+        </fieldset>
+
+        <fieldset id="">
+            <label class="label head h2">SUBSECT_TITLE</label>
+
+            <div id="" class="">
+                <label for="" class="label">INPUT_PURP</label><input type="" name="" placeholder="" id="" class=""/>
+            </div>
+        </fieldset>
+
+    </section>
+
+    <section class="form section" id="">
+        <label class="label head h1">SECTION_TITLE</label>
+
+        <fieldset id="">
+            <label class="label head h2">SUBSECT_TITLE</label>
+
+            <div id="" class="">
+                <label for="" class="label">INPUT_PURP</label><input type="" name="" placeholder="" id="" class=""/>
+            </div>
+        </fieldset>
+
+        <fieldset id="">
+            <label class="label head h2">SUBSECT_TITLE</label>
+
+            <div id="" class="">
+                <label for="" class="label">INPUT_PURP</label><input type="" name="" placeholder="" id="" class=""/>
+            </div>
+        </fieldset>
+
+        <fieldset id="">
+            <label class="label head h2">SUBSECT_TITLE</label>
+
+            <div id="" class="">
+                <label for="" class="label">INPUT_PURP</label><input type="" name="" placeholder="" id="" class=""/>
+            </div>
+        </fieldset>
+
+    </section>
+
+
+    <section id="" class="" hidden>
+        <!-- Only for Datalists -->
+        <datalist id="cardinalDirectionsSimple" class="">
+            <option id="" class="" value="North">
+            <option id="" class="" value="South">
+            <option id="" class="" value="East">
+            <option id="" class="" value="West">
+        </datalist>
+        <datalist id="cardinalDirections" class="">
+            <option id="" class="" value="North">
+            <option id="" class="" value="Northeast">
+            <option id="" class="" value="Northwest">
+            <option id="" class="" value="South">
+            <option id="" class="" value="SouthEast">
+            <option id="" class="" value="SouthWest">
+            <option id="" class="" value="East">
+            <option id="" class="" value="West">
+        </datalist>
+        <datalist id="tideTableOptions">
+            <option id="" class="" value="Rising">
+            <option id="" class="" value="Falling">
+            <option id="" class="" value="Unchanged">
+        </datalist>
+        <datalist id="generalSpecificCurrentMeasureLocations">
+            <option id="" class="" value="Test val 1">
+            <option id="" class="" value="test val 2">
+            <option id="" class="" value="">
+            <option id="" class="" value="">
+            <option id="" class="" value="">
+            <option id="" class="" value="">
+        </datalist>
+        <datalist id="tideTypes">
+            <option id="" class="" value="Ebb Tide">
+            <option id="" class="" value="Flood(Flow) Tide">
+            <option id="" class="" value="Slack Tide">
+        </datalist>
+        <datalist id="beaufortScaleDescriptions">
+            <option id="" class="" value="calm">
+            <option id="" class="" value="light air">
+            <option id="" class="" value="light breeze">
+            <option id="" class="" value="gentle brezee">
+            <option id="" class="" value="moderate breeze">
+            <option id="" class="" value="fresh breeze">
+            <option id="" class="" value="strong breeze">
+            <option id="" class="" value="near gale">
+        </datalist>
+    </section>
+</form>
+</body>
+</html>

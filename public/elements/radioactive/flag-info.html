@@ -1,0 +1,55 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<!--
+`new-element`
+Just trying to understand polymer
+
+@demo demo/index.html 
+-->
+
+<dom-module id="flag-info">
+  <template>
+    <style>
+      :host {
+	  --flag-info: {
+			color:#001935;
+			background-color:#86C0FF;
+			padding: 15px;
+			margin: 7.5px;
+			border-radius: 3.74px;
+        };
+		display: block;
+		padding: 15px;
+		margin: 7.5px;
+		border-radius: 3.74px;
+		
+		@apply(--flag-info);
+		}
+    </style>
+    
+	<div>
+		<iron-icon icon='info'></iron-icon>
+		<strong>{{title}}</strong>
+		<content>
+		</content>
+	</div>
+	
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'flag-info',
+
+      properties: {
+		title: {
+          type: String,
+          value: 'Info!',
+		  reflectToAttribute: true
+        }
+      }
+	
+	
+    });
+  </script>
+</dom-module>
