@@ -1,0 +1,55 @@
+body{
+    padding-top: 70px;
+}
+.ref{
+    margin: 40px;
+    overflow: hidden;
+}
+table tr td:nth-child(1){
+    font-weight: bold;
+    text-align: left;
+}
+.disabled{
+    color: grey;
+    cursor: not-allowed;
+    background-color: #CACECF;
+}
+#g2CheckboxTable{
+    text-align: left;
+}
+#g2CheckboxTable div.col-md-2{
+    border: 1px solid @grey-ligher;
+}
+tr td{
+    text-align: center;
+}
+h1, h2, h3, h4, h5, h6, label:after{
+    content:':';
+}
+button.invisible{
+    display: none;
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+    margin: 0;
+    padding: 0;
+    width: 0;
+    height: 0;
+}
+/* Only necessary if we switch back to bootstrap flags
+#flagIcon{
+    padding-right: 13px;
+}
+.form-flag-text{
+    margin-left: 15px;
+}
+.form-flag{
+    margin: 10px;
+    text-align: left !important;
+}
+*/
+#notificationCenter{
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: max-content;
+    max-width: 2000px;
+}

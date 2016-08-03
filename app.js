@@ -7,7 +7,7 @@ var express = require('express'),
     mysql = require('mysql'),
     jQuery = require('jquery'),
     cheerio = require('cheerio'),
-    $ = cheerio.load('./views/form.ejs'),
+    $ = cheerio.load('./views/form.ejs.bak'),
     fs = require('fs'),
     preprocess = require('preprocess-html'),
     flag = require('./flag'),
@@ -32,7 +32,7 @@ app.use(function(req,res,next){
     //Send the connection variable on every request
     req.conn = conn;
     //Establishes the DOM on the server-side for quick manipulations
-    // by reading the file contents of form.ejs and converts it to
+    // by reading the file contents of form.ejs.bak and converts it to
     // a string, then loads it with the Cheerio module
     fs.readFile(__dirname+"/views/form.ejs", function(err, html){
         if(err) throw err; //Handle unexpected errors

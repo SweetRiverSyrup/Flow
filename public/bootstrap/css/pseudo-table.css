@@ -1,0 +1,31 @@
+.container .pseudo-table,
+.container-fluid .pseudo-table {
+  padding-left: 1.2%;
+  padding-right: 1.2%;
+  border-left: 0.099px solid #ddd;
+  border-right: 0.099px solid #ddd;
+}
+.container .pseudo-table .row,
+.container-fluid .pseudo-table .row {
+  padding-top: 7px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  padding-bottom: 8px;
+  border-bottom: 0.25px solid #ddd;
+}
+.container .pseudo-table .row:nth-child(1),
+.container-fluid .pseudo-table .row:nth-child(1) {
+  padding: 1.6px;
+  border-top: .25px solid #ddd;
+  padding-top: 5px;
+  font-weight: bold;
+}
+.container .pseudo-table .row div:nth-child(1),
+.container-fluid .pseudo-table .row div:nth-child(1) {
+  font-weight: bold;
+}
+.container .pseudo-table .row .bold,
+.container-fluid .pseudo-table .row .bold {
+  font-weight: 700;
+  font-size: 1.05em;
+}

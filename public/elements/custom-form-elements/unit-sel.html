@@ -1,4 +1,5 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-icon/iron-icon.html">
 
 <!--
 `unit-sel`
@@ -10,54 +11,73 @@ Documenting Elements
 <dom-module id="unit-sel">
   <template>
     <style>
-      :host {
-        display: flex;
-		padding: 0 !important;
-		margin: 0 !important;
-		border: 0 !important;
-		width: inherit;
-          max-width: min-content;
-          height: min-content;
-		background-color: inherit;
-		
+      :host{
+          display: block;
+          background-color: inherit;
+          margin: 0;
+          padding: 0;
+          border: 0;
+          outline: 0;
+          --iron-icon-height: 20px;
+          --iron-icon-width: 20px;
+          height: 17.5px;
       }
-	  #unitselect{
-		display: flex;
-		padding: 0px  !important;
-            padding-left: 3px;
-            padding-right: 5px;
-		margin: 0  !important;
-		border: 0 solid #000  !important;
-		outline: none;
-          height: min-content;
-          max-width: 42px;
-		box-shadow: 0px -2px 5px 0px #c6c6c6 inset;
-		background-color: inherit;
-		font-weight: 200;
-		font-size: 0.9em;
-	  }
+        #unitselect{
+            display: block;
+            background-color: inherit;
+            border: 0;
+            width: min-content;
+            width: 40px;
+            height: min-content;
+            height: 20px;
+            margin: 0;
+        }
+        #unitselect:hover{
+            outline: none;
+        }
+        .addon{
+            display: inline-flex;
+            margin: 0;
+        }
+      :host([pressed]) datalist#metric {
+          display: block;
+          position: absolute;
+          top: 0px;
+      }
+        .showDatalist{
+            position: fixed;
+            margin-top: 35px;
+            border: 0.2px solid #bababa;
+            background: white;
+            width: 60px;
+            height: max-content;
+            height: 80px;
+            color: #000;
+            text-align: left;
+            z-index: 10;
+            font-family: sans-serif;
+            padding: 3px;
+            padding-left: 5px;
+        }
+        .showDatalist option{
+            font-weight: bold;
+            color: #000 !important;display: block;
+            font-size: 1em;
+            font-weight: bold;
+            z-index: 11;
+        }
+    .showDatalist option:hover{
+        background: #bababa;
+    }
     </style>
-    <input type="text" list$="[[set]]" id="unitselect" class="notform" value="{{value}}"/>
-	<datalist id="metric">
-			<option id="" class="" value="km">
-            <option id="" class="" value="m">
-            <option id="" class="" value="cm">
-            <option id="" class="" value="mm">
-	</datalist>
-	<datalist id="imperial">
-            <option id="" class="" value="in">
-            <option id="" class="" value="ft">
-            <option id="" class="" value="yd">
-	</datalist>
-	<datalist id="all">
-			<option id="" class="" value="km">
-            <option id="" class="" value="m">
-            <option id="" class="" value="dm">
-            <option id="" class="" value="cm">
-            <option id="" class="" value="mm">
-            <option id="" class="" value="in">
-            <option id="" class="" value="ft">
-            <option id="" class="" value="yd">
+      <div class="addon">
+          <input type="text" id="unitselect" class="notform" value="{{value}}"/><iron-icon id="show" icon='icons:chevron-right'></iron-icon>
+      </div>
+      <datalist id="metric">
+			<option on-tap="setVal" class="" value="km" label="km">
+            <option on-tap="setVal" class="" value="m" label="m">
+            <option on-tap="setVal" class="" value="cm" label="cm">
+            <option on-tap="setVal" class="" value="mm" label="mm">
 	</datalist>
   </template>
 
@@ -73,14 +93,47 @@ Documenting Elements
 		  //Either `metirc`, `imperial`, or `all`
         },
 		value: {
-			type: String
+			type: String,
+            notify: true,
+            readOnly: false
 		},
+        pressed: {
+		    type: Boolean,
+            value: false,
+            notify: true,
+            reflectToAttribute: true
+        }
       },
 
         attached : function() {
           var $$ = Polymer.dom(this.root);
             var egg = $$.querySelector('#unitselect');
             egg.classList.remove('form-control');
+        },
+        listeners: {
+            "tap": "toggle",
+            "show.tap": "showList"
+        },
+        toggle: function() {
+            this.pressed = !this.pressed;
+            var listElem = Polymer.dom(this.root).querySelector("#metric");
+            listElem.classList.add("showDatalist");
+        },
+        showList: function() {
+            var list = "#" + this.set.toString();
+            var listElem = Polymer.dom(this.root).querySelector("#metric");
+            var i = 0;
+            listElem.classList.add("showDatalist");
+            var options = listElem.options;
+
+        },
+        setVal: function(event){
+            var listElem = Polymer.dom(this.root).querySelector("#metric");
+            var options = listElem.options;
+            //Polymer.dom(this.$.metric).children.forEach(function(optionElem) {
+                this.value = event.target.value;
+            console.log(this.value);
+            //});
         }
 
     });

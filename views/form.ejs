@@ -1,171 +1,89 @@
 <!doctype html>
 <html>
 <head>
-    <title><%=title%></title>
+    <meta charset="UTF-8">
+    <title>Flow</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <script src="/javascript/jquery.min.js"></script>
-    <script src="/javascript/flag.js"></script>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/stylesheets/foot.css">
-    <script src="/elements/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="/elements/radioactive/flag-center.html">
-    <link rel="import" href="/elements/radioactive/flag-danger.html">
-    <link rel="import" href="/elements/radioactive/flag-warn.html">
-    <link rel="import" href="/elements/radioactive/flag-info.html">
-    <link rel="import" href="/elements/radioactive/flag-win.html">
-    <link rel="import" href="/elements/radioactive/flag-error.html">
-    <link rel="import" href="/elements/custom-form-elements/unit-sel.html">
+    <!--<link rel="import" href="head.inc.html">-->
+    <!-- Include jQuery -->
+    <script src="./javascript/jquery.min.js"></script>
 
+    <!-- ~Bootstrap~ -->
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css"/>
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="/bootstrap/js/bootstrap.min.js"></script>
-    <script>
+    <!-- Web Components(Required for Polymer) -->
+    <script src="./elements/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <!-- All Polymer custom elements -->
+    <link rel="import" href="./elements/radioactive/flag-center.html">
+    <link rel="import" href="./elements/radioactive/flag-danger.html">
+    <link rel="import" href="./elements/radioactive/flag-warn.html">
+    <link rel="import" href="./elements/radioactive/flag-info.html">
+    <link rel="import" href="./elements/radioactive/flag-win.html">
+    <link rel="import" href="./elements/radioactive/flag-error.html">
+    <link rel="import" href="./elements/custom-form-elements/unit-sel.html">
 
-        $( document ).ready(function() {
-            //$("#launchModal").trigger('click');
-            $('#myModal').modal({
-                backdrop: 'static',
-                keyboard: true //SET TO FALSE WHEN DEPLOYED
-            });
+    <!-- Custom jQuery Plugins -->
+    <script src="./javascript/plugins/pseudo-pseudo.js"></script>
+    <script src="./javascript/plugins/toggleAttr.js"></script>
 
-        });
+    <!-- Required CSS Styles -->
+    <link rel="stylesheet" href="./stylesheets/foot.css">
+    <link rel="stylesheet" href="./bootstrap/css/pseudo-table.css">
 
-        $( document ).ready(function() {
-            //Add the important classes back
-            $("input").addClass("form-control");
-            $("textarea").addClass("form-control");
-            $("input[type=checkbox], input[type=radio]").removeClass("form-control");
-            $(".input-group-addon.degree").addClass("hidden-xs").parent().find("input[type=text]").addClass("form-control-lean");
-            //$("input[type=number],table .input-group > input[type=text]").addClass("form-control-lean");
-        });
-    </script>
-    <style>
-        body{
-            padding-top: 70px;
-        }
-        .ref{
-            margin: 40px;
-            overflow: hidden;
-        }
-        .line{
+    <!-- Miscellaneous Custom Javascript and jQuery files -->
+    <script src="./javascript/main.js"></script>
+    <script src="./javascript/flag.js"></script>
 
-        }
-        table tr td:nth-child(1){
-            font-weight: bold;
-            text-align: left;
-        }
-        .disabled{
-            color: grey;
-            cursor: not-allowed;
-            background-color: #CACECF;
-        }
-        #g2CheckboxTable{
-            text-align: left;
-        }
-        #g2CheckboxTable div.col-md-2{
-            border: 1px solid @grey-ligher;
-        }
-        tr td{
-            text-align: center;
-        }
-        h1, h2, h3, h4, h5, h6, label:after{
-            content:':';
-        }
-
-        .bold{
-            font-weight: bold;
-        }
-        .form-control-lean{
-            padding: 3.5px;
-            margin: 2px;
-        }
-        button.invisible{
-            display: none;
-            background-color: rgba(0, 0, 0, 0);
-            border: 0;
-            margin: 0;
-            padding: 0;
-            width: 0;
-            height: 0;
-        }
-        #flagIcon{
-            padding-right: 13px;
-        }
-        .form-flag-text{
-            margin-left: 15px;
-        }
-        .form-flag{
-            margin: 10px;
-            text-align: left !important;
-        }
-        #notificationCenter{
-            margin-top: 30px;
-            margin-bottom: 20px;
-            width: -webkit-max-content;
-            width: -moz-max-content;
-            width: -ms-max-content;
-            width: -o-max-content;
-            width: max-content;
-            max-width: 2000px;
-        }
-        .input-group-addon{
-            width: min-content;
-            max-width: 65px;
-            padding-left: 2px;
-            padding-right: 2px;
-        }
-        .form-control{
-            padding-left: 4px;
-            padding-right: 1px;
-        }
-    </style>
+    <!-- Miscellaneous Custom CSS Files -->
+    <link rel="stylesheet" href="./stylesheets/main.css">
 </head>
-<body>
+<body class="" style="">
 
-    <button id="launchModal" type="button" class="invisible" data-toggle="modal" data-target="#myModal"></button>
+<button id="launchModal" type="button" class="invisible" data-toggle="modal" data-target="#myModal"></button>
 
-    <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">What group are you in?</h4>
-                </div>
-                <div class="modal-body">
-                    <form id="setGroup" name="setGroup" class="form" action="/" method="post">
-                        <div class="form-group">
-                            <select id="groups" class="form-control">
-                                <option value=""></option>
-                                <option value="1">I'm in Group 1</option>
-                                <option value="2">I'm in Group 2</option>
-                                <option value="3">I'm in Group 3</option>
-                                <option value="4">I'm in Group 4</option>
-                                <option value="5">I'm in Group 5</option>
-                                <option value="6">I'm doing every Group</option>
-                            </select>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="displaySpecificGroup"  name="displaySpecificGroup" form="setGroup">Continue to Lab</button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -s-c -->
-    <script>
-        $( document ).ready(function() {
-            $("#displaySpecificGroup").click(function(){
-                var g = $("#groups").val();
-                if( g == 1 ){
-                    $("#g2, #g3, #g4, #g5").hide()
-                }else if( g == 2 ){
+<div class="modal fade" tabindex="-1" role="dialog" id="myModal" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">What group are you in?</h4>
+            </div>
+            <div class="modal-body">
+                <form id="setGroup" name="setGroup" class="form" action="/" method="post">
+                    <div class="form-group">
+                        <select id="groups" class="form-control">
+                            <option value=""></option>
+                            <option value="1">I'm in Group 1</option>
+                            <option value="2">I'm in Group 2</option>
+                            <option value="3">I'm in Group 3</option>
+                            <option value="4">I'm in Group 4</option>
+                            <option value="5">I'm in Group 5</option>
+                            <option value="6">I'm doing every Group</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="displaySpecificGroup" name="displaySpecificGroup" form="setGroup">Continue to Lab</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -s-c -->
+<script>
+    $( document ).ready(function() {
+        $("#displaySpecificGroup").click(function(){
+            var g = $("#groups").val();
+            if( g == 1 ){
+                $("#g2, #g3, #g4, #g5").hide()
+            }else if( g == 2 ){
 
-                }
-            });
+            }
         });
-    </script>
+    });
+</script>
 
 <!-- Attemp screen read implementation later with .sr-only labels -->
 <section id="navContainer">
@@ -219,7 +137,7 @@
                     </ul>
 
 
-                    <p class="navbar-text navbar-right"><%=river %> / <%=location %> / <%=site %></p>
+                    <p class="navbar-text navbar-right"><%=river%> / <%=location%> / <%=site%></p>
                 </div><!-- /.navbar-collapse -->
 
             </div><!-- /.container-fluid -->
@@ -238,108 +156,120 @@
         <fieldset id="g1FS1" class="g1 FS1 container">
             <h2>Tide Measurement</h2>
 
-            <div id="" class="container">
-                <h3>Fill out the table with your data</h3>
 
-                <div class=""><!-- table-responsive maybe -->
-                    <table id="g1FS1Tbl1" class="g1 FS1 Tbl1 table table-collapsed">
-                        <thead id="" class="">
-                        <tr id="" class="">
-                            <th id="" class="">Time</th>
-                            <th id="" class="">Vertical Tide Change</th>
-                            <th id="" class="">Rising, Falling, or Unchanged</th>
-                        </tr>
-                        </thead>
-                        <tbody id="" class="">
-                        <!-- <input required id="" class="" name="" type=""  placeholder=""/> -->
-                        <tr id="g1FS1Tbl1R1" class="g1 FS1 Tbl1 R1">
-                            <td id="" class="">0<input type="hidden" value="0" class="" id="time0" name="time0"></td>
-                            <td id="" class="">
 
+            <div class="container">
+                <div class="pseudo-table">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                Time
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                Vertical tide change
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                Rising, Falling, or unchanged
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                0 minutes
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
                                 <div class="input-group">
-                                    <input required id="tideChangeAtTime0" class="" name="tideChangeAtTime0" type="text" max="30" min="0" placeholder="0"/>
+                                    <input required="" id="tideChangeAtTime0" class="form-control" name="tideChangeAtTime0" type="text" max="30" min="0" placeholder="0">
                                     <div class="input-group-addon">
-                                        <unit-sel set="metric"/>
+                                        <unit-sel></unit-sel>
                                     </div>
                                 </div>
-                            </td>
-                            <td id="" class="">
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <input required="" list="tideTableOptions" class="form-control" id="tideIsRFUAtTime0" name="tideIsRFUAtTime0">
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                10
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
                                 <div class="input-group">
-                                    <input required list="tideTableOptions" class="" id="tideIsRFUAtTime0" name="tideIsRFUAtTime0" />
-
-                                </div>
-                            </td>
-                        </tr>
-                        <tr id="g1FS1Tbl1R2" class="g1 FS1 Tbl1 R2">
-                            <td id="" class="">10<input type="hidden" value="10" class="" id="time10" name="time10"></td>
-                            <td id="" class="">
-
-                                <div class="input-group">
-                                    <input required id="tideChangeAtTime10" class="" name="tideChangeAtTime10" type="text" max="30" min="0" placeholder="0"/>
+                                    <input required="" id="tideChangeAtTime10" class="form-control" name="tideChangeAtTime10" type="text" max="30" min="0" placeholder="0">
                                     <div class="input-group-addon">
-                                        <unit-sel set="metric"/>
+                                        <unit-sel set="metric"></unit-sel>
                                     </div>
                                 </div>
-                            </td>
-                            <td id="" class="">
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <input required="" list="tideTableOptions" name="tideIsRFUAtTime10" id="tideIsRFUAtTime10" class="form-control">
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                20 minutes
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
                                 <div class="input-group">
-                                    <input required list="tideTableOptions" name="tideIsRFUAtTime10" id="tideIsRFUAtTime10" class="" />
-
-                                </div>
-                            </td>
-                        </tr>
-                        <tr id="g1FS1Tbl1R3" class="g1 FS1 Tbl1 R2">
-                            <td id="" class="">20<input type="hidden" value="20" class="" id="time20" name="time20"></td>
-                            <td id="" class="">
-
-                                <div class="input-group">
-                                    <input required id="tideChangeAtTime20" class="" name="tideChangeAtTime20" type="text" max="30" min="0" placeholder="0"/>
+                                    <input required="" id="tideChangeAtTime20" class="form-control" name="tideChangeAtTime20" type="text" max="30" min="0" placeholder="0">
                                     <div class="input-group-addon">
-                                        <unit-sel set="metric"/>
+                                        <unit-sel set="metric"></unit-sel>
                                     </div>
                                 </div>
-                            </td>
-                            <td id="" class="">
-
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <input required="" list="tideTableOptions" name="tideIsRFUAtTime20" id="tideIsRFUAtTime20" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                30 minutes
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
                                 <div class="input-group">
-                                    <input required list="tideTableOptions" name="tideIsRFUAtTime20" id="tideIsRFUAtTime20" class="" />
-
-                                </div>
-                            </td>
-                        </tr>
-                        <tr id="g1FS1Tbl1R4" class="g1 FS1 Tbl1 R4">
-                            <td id="" class="">30<input type="hidden" value="30" class="" id="time30" name="time30"></td>
-                            <td id="" class="">
-                                <div class="input-group">
-                                    <input required id="tideChangeAtTime30" class="" name="tideChangeAtTime30" type="text" max="30" min="0" placeholder="0"/>
+                                    <input required="" id="tideChangeAtTime30" class="form-control" name="tideChangeAtTime30" type="text" max="30" min="0" placeholder="0">
                                     <div class="input-group-addon">
-                                        <unit-sel set="metric"/>
+                                        <unit-sel set="metric"></unit-sel>
                                     </div>
                                 </div>
-                            </td>
-                            <td id="" class="">
-                                <div class="input-group">
-                                    <input required list="tideTableOptions" name="tideIsRFUAtTime30" id="tideIsRFUAtTime30" class="" />
-
-                                </div>
-
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="form-group" id="">
-                    <label >Overall Tide Change </label>
-                    <div class="input-group">
-                        <input type="text" id="totalTideChange" class="" name="totalTideChange" placeholder="" />
-                        <div class="input-group-addon">(units)</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <input required="" list="tideTableOptions" name="tideIsRFUAtTime30" id="tideIsRFUAtTime30" class="form-control">
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-
             </div>
+
         </fieldset>
 
         <div id="g1FS2REF" class="ref"></div>
@@ -348,17 +278,17 @@
 
             <div id="" class="hidden form-group">
                 <label for="" class="">Water Current Direction</label>
-                <input list="cardinalDirectionsSimple" name="waterCurrentDirection" placeholder="" id="waterCurrentDirection" class=" "/>
+                <input list="cardinalDirectionsSimple" name="waterCurrentDirection" placeholder="" id="waterCurrentDirection" class="form-control">
             </div>
             <div id="" class="form-group">
                 <label for="" class="">Type of Object used</label>
-                <input type="text" name="waterCurrentMeasurementObject" placeholder="" id="waterCurrentMeasurementObject" class="  "/>
+                <input type="text" name="waterCurrentMeasurementObject" placeholder="" id="waterCurrentMeasurementObject" class="form-control">
             </div>
 
             <label for="" class="">Fill Out the following table with your data </label>
             <div id="" class="table-responsive">
 
-                <table id="waterCurrentTable" class="table table-condensed" >
+                <table id="waterCurrentTable" class="table table-condensed">
                     <thead>
                     <tr id="" class="">
                         <th id="" class=""></th>
@@ -375,38 +305,38 @@
                     <tbody id="" class="">
                     <tr id="" class="">
                         <td id="" class="">Trial 1</td>
-                        <td id="" class=""><input list="generalSpecificCurrentMeasureLocations" id="tbl2R1TrialLocation" name="tbl2R1TrialLocation"/></td>
-                        <td id="" class=""><input required id="tbl2R1StartTime" class=" " name="startTime1" type="time"  placeholder=""/></td>
-                        <td id="" class=""><input required id="tbl2R1StopTime" class=" " name="stopTime1" type="time"  placeholder=""/></td>
-                        <td id="" class=""><input required id="tbl2R1TotalDist" class=" " name="totalDist1" type="text" min="0" max="99"  placeholder=""/>(units)</td>
-                        <td id="" class=""><input list="cardinalDirectionsSimple" id="tbl2R1Direction" class=" " name="tbl2R1Direction"/></td>
-                        <td id="" class=""><input required id="tbl2R1CurrentSpeedCMpS" class=" " name="tbl2R1CurrentSpeedCMpS" type="text" min="0" max="520"  placeholder=""/>(cm/sec)</td>
-                        <td id="" class=""><input required id="tbl2R1CurrentSpeedKnts" class=" " name="tbl2R1CurrentSpeedKnts" type="text" min="0" max="520"  placeholder=""/>(knots)</td>
-                        <td id="" class=""><input list="tideTypes" id="tbl2R1EFSTide" class=" " name="tbl2R1EFSTide"/></td>
+                        <td id="" class=""><input list="generalSpecificCurrentMeasureLocations" id="tbl2R1TrialLocation" name="location1" class="form-control"></td>
+                        <td id="" class=""><input required="" id="tbl2R1StartTime" class="form-control" name="startTime1" type="time" placeholder=""></td>
+                        <td id="" class=""><input required="" id="tbl2R1StopTime" class="form-control" name="stopTime1" type="time" placeholder=""></td>
+                        <td id="" class=""><input required="" id="tbl2R1TotalDist" class="form-control" name="distanceTraveled1" type="text" min="0" max="99" placeholder="">(units)</td>
+                        <td id="" class=""><input list="cardinalDirectionsSimple" id="tbl2R1Direction" class="form-control" name="direction1"></td>
+                        <td id="" class=""><input required="" id="tbl2R1CurrentSpeedCMpS" class="form-control" name="currentSpeedCmPerSec1" type="text" min="0" max="520" placeholder="">(cm/sec)</td>
+                        <td id="" class=""><input required="" id="tbl2R1CurrentSpeedKnts" class="form-control" name="currentSpeedKnots1" type="text" min="0" max="520" placeholder="">(knots)</td>
+                        <td id="" class=""><input list="tideTypes" id="tbl2R1EFSTide" class="form-control" name="ebbFlowSlack1"></td>
                     </tr>
 
                     <tr id="" class="">
                         <td id="" class="">Trial 2</td>
-                        <td id="" class=""><input list="generalSpecificCurrentMeasureLocations" id="tbl2R2TrialLocation" name="tbl2R2TrialLocation"/></td>
-                        <td id="" class=""><input required id="tbl2R2StartTime" class=" " name="tbl2R2StartTime" type="time"  placeholder=""/></td>
-                        <td id="" class=""><input required id="tbl2R2StopTime" class=" " name="tbl2R2StopTime" type="time"  placeholder=""/></td>
-                        <td id="" class=""><input required id="tbl2R2TotalDist" class=" " name="tbl2R2TotalDist" type="text" min="0" max="99"  placeholder=""/>(units)</td>
-                        <td id="" class=""><input list="cardinalDirectionsSimple" id="tbl2R2Direction" class=" " name="tbl2R2Direction"/></td>
-                        <td id="" class=""><input required id="tbl2R2CurrentSpeedCMpS" class=" " name="tbl2R2CurrentSpeedCMpS" type="text" min="0" max="520"  placeholder=""/>(cm/sec)</td>
-                        <td id="" class=""><input required id="tbl2R2CurrentSpeedKnts" class=" " name="tbl2R2CurrentSpeedKnts" type="text" min="0" max="520"  placeholder=""/>(knots)</td>
-                        <td id="" class=""><input list="tideTypes" id="tbl2R2EFSTide" class=" " name="tbl2R2EFSTide"/></td>
+                        <td id="" class=""><input list="generalSpecificCurrentMeasureLocations" id="tbl2R2TrialLocation" name="location2" class="form-control"></td>
+                        <td id="" class=""><input required="" id="tbl2R2StartTime" class="form-control" name="startTime2" type="time" placeholder=""></td>
+                        <td id="" class=""><input required="" id="tbl2R2StopTime" class="form-control" name="stopTime2" type="time" placeholder=""></td>
+                        <td id="" class=""><input required="" id="tbl2R2TotalDist" class="form-control" name="distanceTraveled2" type="text" min="0" max="99" placeholder="">(units)</td>
+                        <td id="" class=""><input list="cardinalDirectionsSimple" id="tbl2R2Direction" class="form-control" name="direction2"></td>
+                        <td id="" class=""><input required="" id="tbl2R2CurrentSpeedCMpS" class="form-control" name="currentSpeedCmPerSec2" type="text" min="0" max="520" placeholder="">(cm/sec)</td>
+                        <td id="" class=""><input required="" id="tbl2R2CurrentSpeedKnts" class="form-control" name="currentSpeedKnots2" type="text" min="0" max="520" placeholder="">(knots)</td>
+                        <td id="" class=""><input list="tideTypes" id="tbl2R2EFSTide" class="form-control" name="ebbFlowSlack2"></td>
                     </tr>
 
                     <tr id="tbl2R" class="">
                         <td id="" class="">Trial 3</td>
-                        <td id="" class=""><input list="generalSpecificCurrentMeasureLocations" id="tbl2R3TrialLocation" name="tbl2R3TrialLocation"/></td>
-                        <td id="" class=""><input required id="tbl2R3StartTime" class=" " name="tbl2R3StartTime" type="time"  placeholder=""/></td>
-                        <td id="" class=""><input required id="tbl2R3StopTime" class=" " name="tbl2R3StopTime" type="time"  placeholder=""/></td>
-                        <td id="" class=""><input required id="tbl2R3TotalDist" class=" " name="tbl2R3TotalDist" type="text" min="0" max="99"  placeholder=""/>(units)</td>
-                        <td id="" class=""><input list="cardinalDirectionsSimple" id="tbl2R3Direction" class=" " name="tbl2R3Direction"/></td>
-                        <td id="" class=""><input required id="tbl2R3CurrentSpeedCMpS" class=" " name="tbl2R3CurrentSpeedCMpS" type="text" min="0" max="520"  placeholder=""/>(cm/sec)</td>
-                        <td id="" class=""><input required id="tbl2R3CurrentSpeedKnts" class=" " name="tbl2R3CurrentSpeedKnts" type="text" min="0" max="520"  placeholder=""/>(knots)</td>
-                        <td id="" class=""><input list="tideTypes" id="tbl2R3EFSTide" class=" " name="tbl2R3EFSTide"/></td>
+                        <td id="" class=""><input list="generalSpecificCurrentMeasureLocations" id="tbl2R3TrialLocation" name="location3" class="form-control"></td>
+                        <td id="" class=""><input required="" id="tbl2R3StartTime" class="form-control" name="startTime3" type="time" placeholder=""></td>
+                        <td id="" class=""><input required="" id="tbl2R3StopTime" class="form-control" name="stopTime3" type="time" placeholder=""></td>
+                        <td id="" class=""><input required="" id="tbl2R3TotalDist" class="form-control" name="distanceTraveled3" type="text" min="0" max="99" placeholder="">(units)</td>
+                        <td id="" class=""><input list="cardinalDirectionsSimple" id="tbl2R3Direction" class="form-control" name="direction3"></td>
+                        <td id="" class=""><input required="" id="tbl2R3CurrentSpeedCMpS" class="form-control" name="currentSpeedCmPerSec3" type="text" min="0" max="520" placeholder="">(cm/sec)</td>
+                        <td id="" class=""><input required="" id="tbl2R3CurrentSpeedKnts" class="form-control" name="currentSpeedKnots3" type="text" min="0" max="520" placeholder="">(knots)</td>
+                        <td id="" class=""><input list="tideTypes" id="tbl2R3EFSTide" class="form-control" name="ebbFlowSlack3"></td>
                     </tr>
 
                     <tr id="" class="">
@@ -416,8 +346,8 @@
                         <td id="" class="disabled"></td>
                         <td id="" class="disabled"></td>
                         <td id="" class="disabled"></td>
-                        <td id="" class=""><input required id="tbl2R4CurrentSpeedCMpSAvg" class=" " name="tbl2R4CurrentSpeedCMpSAvg" type="text" min="0" max="520"  placeholder=""/>(cm/sec)</td>
-                        <td id="" class=""><input required id="tbl2R4CurrentSpeedKntsAvg" class=" " name="tbl2R4CurrentSpeedKntsAvg" type="text" min="0" max="520"  placeholder=""/>(knots)</td>
+                        <td id="" class=""><input required="" id="tbl2R4CurrentSpeedCMpSAvg" class="form-control" name="tbl2R4CurrentSpeedCMpSAvg" type="text" min="0" max="520" placeholder="">(cm/sec)</td>
+                        <td id="" class=""><input required="" id="tbl2R4CurrentSpeedKntsAvg" class="form-control" name="tbl2R4CurrentSpeedKntsAvg" type="text" min="0" max="520" placeholder="">(knots)</td>
                         <td id="" class="disabled"></td>
                     </tr>
                     </tbody>
@@ -427,13 +357,13 @@
                 <label for="" class="">Current Speed(m/sec)</label>
 
                 <div class="input-group">
-                    <input type="number" name="waterCurrentSpeed" placeholder="" id="waterCurrentSpeed" class="  "/>
+                    <input type="number" name="waterCurrentSpeed" placeholder="" id="waterCurrentSpeed" class="form-control">
                     <div class="input-group-addon">
                         m/sec
                     </div>
                 </div>
             </div>
-            </div>
+
         </fieldset>
 
         <div id="g1FS3REF" class="ref"></div>
@@ -441,7 +371,7 @@
             <h2>Air Temperature, Clouds and Wind</h2>
 
             <div id="g1AtmosphericMeasurementFieldsetAirTempDataTable" class="table-responsive">
-                <table id="tbl3" class="table-collapsed" >
+                <table id="tbl3" class="table-collapsed">
                     <thead id="" class="">
                     <tr id="" class="">
                         <th id="" class="">Time</th>
@@ -453,52 +383,52 @@
                     <tbody id="" class="">
                     <tr id="" class="">
                         <td id="" class="">
-                            <input required id="tbl3R1Time" class=" " name="tbl3R1Time" type="time"  placeholder=""/>
+                            <input required="" id="tbl3R1Time" class="form-control" name="time1" type="time" placeholder="">
                         </td>
                         <td id="" class="">
                             <div class="input-group">
-                                <input required id="tbl3R1F" class=" " name="tbl3R1F" type="text" min="-20" max="999"  placeholder=""/>
-                                <div class="input-group-addon">&deg;F</div>
+                                <input required="" id="tbl3R1F" class="form-control" name="tempF1" type="text" min="-20" max="999" placeholder="">
+                                <div class="input-group-addon">°F</div>
                             </div>
                         </td>
                         <td id="" class="">
                             <div class="input-group">
-                                <input required id="tbl3R1C" class=" " name="tbl3R1C" type="text" min="-20" max="999"  placeholder=""/>
-                                <div class="input-group-addon">&deg;C</div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr id="" class="">
-                        <td id="" class="">
-                            <input required id="tbl3R2Time" class=" " name="tbl3R2Time" type="time"  placeholder=""/>
-                        </td>
-                        <td id="" class="">
-                            <div class="input-group">
-                                <input required id="tbl3R2F" class=" " name="tbl3R2F" type="text" min="-20" max="999"  placeholder=""/>
-                                <div class="input-group-addon">&deg;F</div>
-                            </div>
-                        </td>
-                        <td id="" class="">
-                            <div class="input-group">
-                                <input required id="tbl3R2C" class=" " name="tbl3R2C" type="text" min="-20" max="999"  placeholder=""/>
-                                <div class="input-group-addon">&deg;C</div>
+                                <input required="" id="tbl3R1C" class="form-control" name="tempC1" type="text" min="-20" max="999" placeholder="">
+                                <div class="input-group-addon">°C</div>
                             </div>
                         </td>
                     </tr>
                     <tr id="" class="">
                         <td id="" class="">
-                            <input required id="tbl3R3Time" class=" " name="tbl3R3Time" type="time"  placeholder=""/>
+                            <input required="" id="tbl3R2Time" class="form-control" name="time2" type="time" placeholder="">
                         </td>
                         <td id="" class="">
                             <div class="input-group">
-                                <input required id="tbl3R3F" class=" " name="tbl3R3F" type="text" min="-20" max="999"  placeholder=""/>
-                                <div class="input-group-addon">&deg;F</div>
+                                <input required="" id="tbl3R2F" class="form-control" name="tempF2" type="text" min="-20" max="999" placeholder="">
+                                <div class="input-group-addon">°F</div>
                             </div>
                         </td>
                         <td id="" class="">
                             <div class="input-group">
-                                <input required id="tbl3R3C" class=" " name="tbl3R3C" type="text" min="-20" max="999"  placeholder=""/>
-                                <div class="input-group-addon">&deg;C</div>
+                                <input required="" id="tbl3R2C" class="form-control" name="tempC2" type="text" min="-20" max="999" placeholder="">
+                                <div class="input-group-addon">°C</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id="" class="">
+                        <td id="" class="">
+                            <input required="" id="tbl3R3Time" class="form-control" name="time3" type="time" placeholder="">
+                        </td>
+                        <td id="" class="">
+                            <div class="input-group">
+                                <input required="" id="tbl3R3F" class="form-control" name="tempF3" type="text" min="-20" max="999" placeholder="">
+                                <div class="input-group-addon">°F</div>
+                            </div>
+                        </td>
+                        <td id="" class="">
+                            <div class="input-group">
+                                <input required="" id="tbl3R3C" class="form-control" name="tempC3" type="text" min="-20" max="999" placeholder="">
+                                <div class="input-group-addon">°C</div>
                             </div>
                         </td>
                     </tr>
@@ -509,25 +439,25 @@
                 <h3>Estimate Cloud Coverage</h3>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="cloudCover" placeholder="" id="" value="clear"/>
+                        <input type="radio" name="cloudCover" placeholder="" id="" value="clear" class="">
                         Clear(0-25%)
                     </label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="cloudCover" placeholder="" id="" value="partly"/>
+                        <input type="radio" name="cloudCover" placeholder="" id="" value="partly" class="">
                         Partly Cloudy(25-50%)
                     </label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="cloudCover" placeholder="" id="" value="mostly"/>
+                        <input type="radio" name="cloudCover" placeholder="" id="" value="mostly" class="">
                         Mostly Cloudy(50-75%)
                     </label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="cloudCover" placeholder="" id="" value="overcast"/>
+                        <input type="radio" name="cloudCover" placeholder="" id="" value="overcast" class="">
                         Overcast(75-100%)
                     </label>
                 </div>
@@ -537,23 +467,23 @@
 
                 <div class="form-group">
                     <label>Wind Direction</label>
-                    <input required id="windDirection" class="  line" list="cardinalDirections"  placeholder=""/>
+                    <input required="" id="windDirection" name="windDirection" class="line form-control" list="cardinalDirections" placeholder="">
                 </div>
                 <div class="form-group">
                     <label>Wind Speed(mph)</label>
-                    <input required id="windSpeedMph" class="  line" name="windSpeedMph" type="text" min="0" max="99"  placeholder=""/>
+                    <input required="" id="windSpeedMph" class="line form-control" name="windSpeedMph" type="text" min="0" max="99" placeholder="">
                 </div>
                 <div class="form-group">
                     <label>Wind Speed(knots)</label>
-                    <input required id="windSpeedKnts" class="  line" name="windSpeedKnts" type="text" min="0" max="99"  placeholder=""/>
+                    <input required="" id="windSpeedKnots" class="line form-control" name="windSpeedKonts" type="text" min="0" max="99" placeholder="">
                 </div>
                 <div class="form-group">
                     <label>Year, Month</label>
-                    <input required id="yearMonth" class="  line" name="yearMonth" type="month"  placeholder=""/>
+                    <input required="" id="yearMonth" class="line form-control" name="yearMonth" type="month" placeholder="">
                 </div>
                 <div class="form-group">
                     <label>Beaufort Description</label>
-                    <input required id="windBeaufortScale" class="  line" name="windBeaufortScale" list="beaufortScaleDescriptions"  placeholder=""/>
+                    <input required="" id="windBeaufortScale" class="line form-control" name="windBeaufortScale" list="beaufortScaleDescriptions" placeholder="">
                 </div>
             </div>
 
@@ -571,22 +501,22 @@
             <!-- A change may occur here later, this info may not stay -->
             <div id="" class="form-group">
                 <label>Latitude</label>
-                <input type="text" min="40" max="99.99999" name="studentLat" placeholder="" id="studentLat" class=" "/>
+                <input type="text" min="40" max="99.99999" name="studentLat" placeholder="" id="studentLat" class="form-control">
             </div>
             <div id="" class="form-group">
                 <label>Longitude</label>
-                <input type="text" min="40" max="99.99999" name="studentLong" placeholder="" id="studentLong" class=" "/>
+                <input type="text" min="40" max="99.99999" name="studentLong" placeholder="" id="studentLong" class="form-control">
             </div>
 
             <div class="container">
 
                 <label>Check all that apply:</label>
-                <input type="hidden" value="" id="g2CheckboxArray" name="g2CheckboxArray" />
+                <input type="hidden" value="" id="g2CheckboxArray" name="g2CheckboxArray" class="form-control">
                 <div id="g2CheckboxTable" class="row">
                     <div class="col-md-2">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="isSandy" name="isSandy" value="sandy" />
+                                <input type="checkbox" id="isSandy" name="isSandy" value="sandy" class="">
                                 Sandy
                             </label>
                         </div>
@@ -594,7 +524,7 @@
                     <div class="col-md-2">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="isBulkhead" name="isBulkhead" value="bulkhead" />
+                                <input type="checkbox" id="isBulkhead" name="isBulkhead" value="bulkhead" class="">
                                 Bulkhead
                             </label>
                         </div>
@@ -602,7 +532,7 @@
                     <div class="col-md-2">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="isVegetated" name="isVegetated" value="vegetated" />
+                                <input type="checkbox" id="isVegetated" name="isVegetated" value="vegetated" class="">
                                 Vegetated
                             </label>
                         </div>
@@ -613,7 +543,7 @@
                     <div class="col-md-2">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="isRoadEnding" name="isRoadEnding" value="roadEnding" />
+                                <input type="checkbox" id="isRoadEnding" name="isRoadEnding" value="roadEnding" class="">
                                 Road Ending
                             </label>
                         </div>
@@ -621,7 +551,7 @@
                     <div class="col-md-2">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="isRocky" name="isRocky" value="rocky" />
+                                <input type="checkbox" id="isRocky" name="isRocky" value="rocky" class="">
                                 Rocky
                             </label>
                         </div>
@@ -629,7 +559,7 @@
                     <div class="col-md-2">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="isPipeEnteringRiverBay" name="isPipeEnteringRiverBay" value="pipeEnteringRiverBay" />
+                                <input type="checkbox" id="isPipeEnteringRiverBay" name="isPipeEnteringRiverBay" value="pipeEnteringRiverBay" class="">
                                 Pipe Entering river/bay
                             </label>
                         </div>
@@ -640,7 +570,7 @@
                     <div class="col-md-2">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="isGentleBeachSlope" name="isGentleBeachSlope" value="gentleBeachSlope" />
+                                <input type="checkbox" id="isGentleBeachSlope" name="isGentleBeachSlope" value="gentleBeachSlope" class="">
                                 Gentle Beach Slope
                             </label>
                         </div>
@@ -648,7 +578,7 @@
                     <div class="col-md-2">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="isSteepSlope" name="isSteepSlope" value="steepSlope" />
+                                <input type="checkbox" id="isSteepSlope" name="isSteepSlope" value="steepSlope" class="">
                                 Steep Slope
                             </label>
                         </div>
@@ -656,7 +586,7 @@
                     <div class="col-md-2">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="isPier" name="isPier" value="pier" />
+                                <input type="checkbox" id="isPier" name="isPier" value="pier" class="">
                                 Pier
                             </label>
                         </div>
@@ -667,7 +597,7 @@
                     <div class="col-md-2">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="isRiprap" name="isRiprap" value="riprap" />
+                                <input type="checkbox" id="isRiprap" name="isRiprap" value="riprap" class="">
                                 Riprap
                             </label>
                         </div>
@@ -675,7 +605,7 @@
                     <div class="col-md-2">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="isGarbage" name="isGarbage" value="garbage" />
+                                <input type="checkbox" id="isGarbage" name="isGarbage" value="garbage" class="">
                                 Garbage
                             </label>
                         </div>
@@ -683,7 +613,7 @@
                     <div class="col-md-2">
                         <div class="checkbox show">
                             <label>
-                                <input type="checkbox" id="g2CheckboxTableOptOther" name="" value="" />
+                                <input type="checkbox" id="g2CheckboxTableOptOther" name="" value="" class="">
                                 Other
                                 <script>
                                     $("#g2CheckboxTableOptOther").click(function() {
@@ -729,7 +659,7 @@
                             </label>
                         </div>
                     </div>
-                    <div id="g2CheckboxTableOptOtherField" class="hidden"><textarea id="g2CheckboxTableOptOtherFieldArea" class=" " name="" placeholder="Your text here..."></textarea></div>
+                    <div id="g2CheckboxTableOptOtherField" class="hidden"><textarea id="g2CheckboxTableOptOtherFieldArea" class="form-control" name="" placeholder="Your text here..."></textarea></div>
                 </div>
 
             </div>
@@ -740,7 +670,7 @@
                     <div class="col-md-1">
                         <div class="radio">
                             <label>
-                                <input type="radio" name="riverBayis" id="mostlySand" value="sand">
+                                <input type="radio" name="riverBayIs" id="mostlySand" value="sand" class="">
                                 Sand
                             </label>
                         </div>
@@ -749,7 +679,7 @@
                     <div class="col-md-1">
                         <div class="radio">
                             <label>
-                                <input type="radio" name="riverBayis" id="mostlyMud" value="mud">
+                                <input type="radio" name="riverBayIs" id="mostlyMud" value="mud" class="">
                                 Mud
                             </label>
                         </div>
@@ -758,7 +688,7 @@
                     <div class="col-md-1">
                         <div class="radio">
                             <label>
-                                <input type="radio" name="riverBayis" id="mostlyRock" value="rock">
+                                <input type="radio" name="riverBayIs" id="mostlyRock" value="rock" class="">
                                 Rock
                             </label>
                         </div>
@@ -767,7 +697,7 @@
                     <div class="col-md-1">
                         <div class="radio">
                             <label>
-                                <input type="radio" name="riverBayis" id="mostlyWeeds" value="weeds">
+                                <input type="radio" name="riverBayIs" id="mostlyWeeds" value="weeds" class="">
                                 Weeds
                             </label>
                         </div>
@@ -776,7 +706,7 @@
                     <div class="col-md-2">
                         <div class="radio">
                             <label>
-                                <input type="radio" name="riverBayis" id="mostlyUD" value="indeterminable">
+                                <input type="radio" name="riverBayIs" id="mostlyUD" value="indeterminable" class="">
                                 Unable to be Determined
                             </label>
                         </div>
@@ -790,7 +720,7 @@
                     <div class="col-md-1">
                         <div class="radio">
                             <label>
-                                <input type="radio" name="vegBottomPercent" id="" value="0to25">
+                                <input type="radio" name="vegBottomPercent" id="" value="0to25" class="">
                                 0-25%
                             </label>
                         </div>
@@ -799,7 +729,7 @@
                     <div class="col-md-1">
                         <div class="radio">
                             <label>
-                                <input type="radio" name="vegBottomPercent" id="" value="25to50">
+                                <input type="radio" name="vegBottomPercent" id="" value="25to50" class="">
                                 25-50%
                             </label>
                         </div>
@@ -808,7 +738,7 @@
                     <div class="col-md-1">
                         <div class="radio">
                             <label>
-                                <input type="radio" name="vegBottomPercent" id="" value="50to75">
+                                <input type="radio" name="vegBottomPercent" id="" value="50to75" class="">
                                 50-75%
                             </label>
                         </div>
@@ -817,7 +747,7 @@
                     <div class="col-md-1">
                         <div class="radio">
                             <label>
-                                <input type="radio" name="vegBottomPercent" id="" value="75to100">
+                                <input type="radio" name="vegBottomPercent" id="" value="75to100" class="">
                                 75-100%
                             </label>
                         </div>
@@ -831,7 +761,7 @@
                     <div class="col-md-1">
                         <div class="radio">
                             <label>
-                                <input type="radio" name="vegSurfacePercent" id="" value="0to25">
+                                <input type="radio" name="vegSurfacePercent" id="" value="0to25" class="">
                                 0-25%
                             </label>
                         </div>
@@ -840,7 +770,7 @@
                     <div class="col-md-1">
                         <div class="radio">
                             <label>
-                                <input type="radio" name="vegSurfacePercent" id="" value="25to50">
+                                <input type="radio" name="vegSurfacePercent" id="" value="25to50" class="">
                                 25-50%
                             </label>
                         </div>
@@ -849,7 +779,7 @@
                     <div class="col-md-1">
                         <div class="radio">
                             <label>
-                                <input type="radio" name="vegSurfacePercent" id="" value="50to75">
+                                <input type="radio" name="vegSurfacePercent" id="" value="50to75" class="">
                                 50-75%
                             </label>
                         </div>
@@ -858,7 +788,7 @@
                     <div class="col-md-1">
                         <div class="radio">
                             <label>
-                                <input type="radio" name="vegSurfacePercent" id="" value="75to100">
+                                <input type="radio" name="vegSurfacePercent" id="" value="75to100" class="">
                                 75-100%
                             </label>
                         </div>
@@ -876,7 +806,7 @@
 
             <div id="" class="form-group">
                 <label for="" class="">Upload a picture of your sketch of a map of the site</label>
-                <input type="file" name="mapSketch" placeholder="" id="mapSketch" class=" "/>
+                <input type="file" name="mapSketch" placeholder="" id="mapSketch" class="form-control">
             </div>
         </fieldset>
 
@@ -889,7 +819,7 @@
                     <div class="col-md-5">
                         <div id="" class="form-group">
                             <label>Upload a picture of the detailed sketch of your sample</label>
-                            <input type="file" name="" placeholder="" id="sedimentSampleSketch" class=" "/>
+                            <input type="file" name="" placeholder="" id="sedimentSampleSketch" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -897,7 +827,7 @@
                     <div class="col-md-5">
                         <div id="" class="form-group">
                             <label>Upload a picture of your sediment sample</label>
-                            <input type="file" name="" placeholder="" id="sedimentSampleReal" class=" "/>
+                            <input type="file" name="" placeholder="" id="sedimentSampleReal" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -907,9 +837,9 @@
                         <div id="" class="form-group">
                             <label>Total length of sediment core</label>
                             <div class="input-group">
-                                <input type="text" min="0" max="520" name="" placeholder="" id="sedimentSampleLength" class=" "/>
+                                <input type="text" min="0" max="520" name="" placeholder="" id="sedimentSampleLength" class="form-control">
                                 <div class="input-group-addon">
-                                    (units)
+                                    test
                                 </div>
                             </div>
                         </div>
@@ -920,12 +850,12 @@
                     <div class="col-md-5">
                         <div id="" class="form-group">
                             <label>Total length of <em><u>oxidized</u></em> layer of core(if present)</label>
-                                <div class="input-group">
-                                    <input type="text" min="0" max="520" name="" placeholder="" id="sedimentSampleOxicLength" class=" "/>
-                                    <div class="input-group-addon">
-                                        (units)
-                                    </div>
+                            <div class="input-group">
+                                <input type="text" min="0" max="520" name="" placeholder="" id="sedimentSampleOxicLength" class="form-control">
+                                <div class="input-group-addon">
+                                    test
                                 </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -935,9 +865,9 @@
                         <div id="" class="form-group">
                             <label>Total length of <em><u>anoxic</u></em> layer of core(if present)</label>
                             <div class="input-group">
-                                <input type="text" min="0" max="520" name="" placeholder="" id="sedimentSampleAnoxicLength" class=" "/>
+                                <input type="text" min="0" max="520" name="" placeholder="" id="sedimentSampleAnoxicLength" class="form-control">
                                 <div class="input-group-addon">
-                                    (units)
+                                    test
                                 </div>
                             </div>
                         </div>
@@ -949,7 +879,7 @@
 
                         <table class="table hidden-xs hidden-sm">
                             <caption>For each row, select the option that best suits that feature</caption>
-                            <tr>
+                            <tbody><tr>
                                 <th></th>
                                 <th>Absent</th>
                                 <th>rare</th>
@@ -960,94 +890,94 @@
 
                             <tr>
                                 <td>Clay</td>
-                                <td> <input type="radio" name="r1" id="clayAbsent" class=""/> </td>
-                                <td> <input type="radio" name="r1" id="clayRare" class=""/> </td>
-                                <td> <input type="radio" name="r1" id="clayCommon" class=""/> </td>
-                                <td> <input type="radio" name="r1" id="clayAbundant" class=""/> </td>
-                                <td> <textarea id="clayComments" class="" name=""></textarea> </td>
+                                <td> <input type="radio" name="r1" id="clayAbsent" class=""> </td>
+                                <td> <input type="radio" name="r1" id="clayRare" class=""> </td>
+                                <td> <input type="radio" name="r1" id="clayCommon" class=""> </td>
+                                <td> <input type="radio" name="r1" id="clayAbundant" class=""> </td>
+                                <td> <textarea id="clayComments" class="form-control" name=""></textarea> </td>
                             </tr>
 
                             <tr>
                                 <td>Mud</td>
-                                <td> <input type="radio" name="r2" id="mudAbsent" class=""/> </td>
-                                <td> <input type="radio" name="r2" id="mudRare" class=""/> </td>
-                                <td> <input type="radio" name="r2" id="mudCommon" class=""/> </td>
-                                <td> <input type="radio" name="r2" id="mudAbundant" class=""/> </td>
-                                <td> <textarea id="mudComments" class="" name=""></textarea> </td>
+                                <td> <input type="radio" name="r2" id="mudAbsent" class=""> </td>
+                                <td> <input type="radio" name="r2" id="mudRare" class=""> </td>
+                                <td> <input type="radio" name="r2" id="mudCommon" class=""> </td>
+                                <td> <input type="radio" name="r2" id="mudAbundant" class=""> </td>
+                                <td> <textarea id="mudComments" class="form-control" name=""></textarea> </td>
                             </tr>
 
                             <tr>
                                 <td>Sand</td>
-                                <td> <input type="radio" name="r3" id="sandAbsent" class=""/> </td>
-                                <td> <input type="radio" name="r3" id="sandRare" class=""/> </td>
-                                <td> <input type="radio" name="r3" id="sandCommon" class=""/> </td>
-                                <td> <input type="radio" name="r3" id="sandAbundant" class=""/> </td>
-                                <td> <textarea id="sandComments" class="" name=""></textarea> </td>
+                                <td> <input type="radio" name="r3" id="sandAbsent" class=""> </td>
+                                <td> <input type="radio" name="r3" id="sandRare" class=""> </td>
+                                <td> <input type="radio" name="r3" id="sandCommon" class=""> </td>
+                                <td> <input type="radio" name="r3" id="sandAbundant" class=""> </td>
+                                <td> <textarea id="sandComments" class="form-control" name=""></textarea> </td>
                             </tr>
 
                             <tr>
                                 <td>Gravel</td>
-                                <td> <input type="radio" name="r4" id="gravelAbsent" class=""/> </td>
-                                <td> <input type="radio" name="r4" id="gravelRare" class=""/> </td>
-                                <td> <input type="radio" name="r4" id="gravelCommon" class=""/> </td>
-                                <td> <input type="radio" name="r4" id="gravelAbundant" class=""/> </td>
-                                <td> <textarea id="gravelComments" class="" name=""></textarea> </td>
+                                <td> <input type="radio" name="r4" id="gravelAbsent" class=""> </td>
+                                <td> <input type="radio" name="r4" id="gravelRare" class=""> </td>
+                                <td> <input type="radio" name="r4" id="gravelCommon" class=""> </td>
+                                <td> <input type="radio" name="r4" id="gravelAbundant" class=""> </td>
+                                <td> <textarea id="gravelComments" class="form-control" name=""></textarea> </td>
                             </tr>
 
                             <tr>
                                 <td>Pebbles</td>
-                                <td> <input type="radio" name="r5" id="pebblesAbsent" class=""/> </td>
-                                <td> <input type="radio" name="r5" id="pebblesRare" class=""/> </td>
-                                <td> <input type="radio" name="r5" id="pebblesCommon" class=""/> </td>
-                                <td> <input type="radio" name="r5" id="pebblesAbundant" class=""/> </td>
-                                <td> <textarea id="pebblesComments" class="" name=""></textarea> </td>
+                                <td> <input type="radio" name="r5" id="pebblesAbsent" class=""> </td>
+                                <td> <input type="radio" name="r5" id="pebblesRare" class=""> </td>
+                                <td> <input type="radio" name="r5" id="pebblesCommon" class=""> </td>
+                                <td> <input type="radio" name="r5" id="pebblesAbundant" class=""> </td>
+                                <td> <textarea id="pebblesComments" class="form-control" name=""></textarea> </td>
                             </tr>
 
                             <tr>
                                 <td>Dead Clam</td>
-                                <td> <input type="radio" name="r6" id="bivalveAbsent" class=""/> </td>
-                                <td> <input type="radio" name="r6" id="bivalveRare" class=""/> </td>
-                                <td> <input type="radio" name="r6" id="bivalveCommon" class=""/> </td>
-                                <td> <input type="radio" name="r6" id="bivalveAbundant" class=""/> </td>
-                                <td> <textarea id="bivalveComments" class="" name=""></textarea> </td>
+                                <td> <input type="radio" name="r6" id="bivalveAbsent" class=""> </td>
+                                <td> <input type="radio" name="r6" id="bivalveRare" class=""> </td>
+                                <td> <input type="radio" name="r6" id="bivalveCommon" class=""> </td>
+                                <td> <input type="radio" name="r6" id="bivalveAbundant" class=""> </td>
+                                <td> <textarea id="bivalveComments" class="form-control" name=""></textarea> </td>
                             </tr>
 
                             <tr>
                                 <td>Dead Snail</td>
-                                <td> <input type="radio" name="r7" id="snailAbsent" class=""/> </td>
-                                <td> <input type="radio" name="r7" id="snailRare" class=""/> </td>
-                                <td> <input type="radio" name="r7" id="snailCommon" class=""/> </td>
-                                <td> <input type="radio" name="r7" id="snailAbundant" class=""/> </td>
-                                <td> <textarea id="snailComments" class="" name=""></textarea> </td>
+                                <td> <input type="radio" name="r7" id="snailAbsent" class=""> </td>
+                                <td> <input type="radio" name="r7" id="snailRare" class=""> </td>
+                                <td> <input type="radio" name="r7" id="snailCommon" class=""> </td>
+                                <td> <input type="radio" name="r7" id="snailAbundant" class=""> </td>
+                                <td> <textarea id="snailComments" class="form-control" name=""></textarea> </td>
                             </tr>
 
                             <tr>
                                 <td>Macroinverts</td>
-                                <td> <input type="radio" name="r8" id="macroinvertsAbsent" class=""/> </td>
-                                <td> <input type="radio" name="r8" id="macroinvertsRare" class=""/> </td>
-                                <td> <input type="radio" name="r8" id="macroinvertsCommon" class=""/> </td>
-                                <td> <input type="radio" name="r8" id="macroinvertsAbundant" class=""/> </td>
-                                <td> <textarea id="macroinvertsComments" class="" name=""></textarea> </td>
+                                <td> <input type="radio" name="r8" id="macroinvertsAbsent" class=""> </td>
+                                <td> <input type="radio" name="r8" id="macroinvertsRare" class=""> </td>
+                                <td> <input type="radio" name="r8" id="macroinvertsCommon" class=""> </td>
+                                <td> <input type="radio" name="r8" id="macroinvertsAbundant" class=""> </td>
+                                <td> <textarea id="macroinvertsComments" class="form-control" name=""></textarea> </td>
                             </tr>
 
                             <tr>
                                 <td>Coal</td>
-                                <td> <input type="radio" name="r9" id="coalAbsent" class=""/> </td>
-                                <td> <input type="radio" name="r9" id="coalRare" class=""/> </td>
-                                <td> <input type="radio" name="r9" id="coalCommon" class=""/> </td>
-                                <td> <input type="radio" name="r9" id="coalAbundant" class=""/> </td>
-                                <td> <textarea id="coalComments" class="" name=""></textarea> </td>
+                                <td> <input type="radio" name="r9" id="coalAbsent" class=""> </td>
+                                <td> <input type="radio" name="r9" id="coalRare" class=""> </td>
+                                <td> <input type="radio" name="r9" id="coalCommon" class=""> </td>
+                                <td> <input type="radio" name="r9" id="coalAbundant" class=""> </td>
+                                <td> <textarea id="coalComments" class="form-control" name=""></textarea> </td>
                             </tr>
 
                             <tr>
                                 <td>Plant Material</td>
-                                <td> <input type="radio" name="r10" id="plantAbsent" class=""/> </td>
-                                <td> <input type="radio" name="r10" id="plantRare" class=""/> </td>
-                                <td> <input type="radio" name="r10" id="plantCommon" class=""/> </td>
-                                <td> <input type="radio" name="r10" id="plantAbundant" class=""/> </td>
-                                <td> <textarea id="plantComments" class="" name=""></textarea> </td>
+                                <td> <input type="radio" name="r10" id="plantAbsent" class=""> </td>
+                                <td> <input type="radio" name="r10" id="plantRare" class=""> </td>
+                                <td> <input type="radio" name="r10" id="plantCommon" class=""> </td>
+                                <td> <input type="radio" name="r10" id="plantAbundant" class=""> </td>
+                                <td> <textarea id="plantComments" class="form-control" name=""></textarea> </td>
                             </tr>
-                        </table>
+                            </tbody></table>
 
                     </div>
                 </div>
@@ -1064,413 +994,225 @@
         <div id="g3FS1REF" class="ref"></div>
         <fieldset id="g3FS1" class="container">
             <h2>Aquatic Biology Survey</h2>
-            <div class="container">
-                <div id="" class="form-group">
-                    <label>Length of net</label>
-                    <div class="input-group">
-                        <input type="text" min="0" max="100" name="" placeholder="" id="" class=" "/>
-                        <div class="input-group-addon">feet</div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label>Names of those using the net</label>
+                            <textarea id="netNames" name="" class="form-control" title="Seperate by commas"></textarea>
+                        </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label>Width of net</label>
-                    <div class="input-group">
-                        <input type="text" min="0" max="100" name="" placeholder="" id="" class=" "/>
-                        <div class="input-group-addon">feet</div>
-                    </div>
-                </div>
+            <hr>
 
-                <div class="form-group">
-                    <label>Mesh Size</label>
-                    <div class="input-group">
-                        <input type="text" min="0" max="100" name="" placeholder="" id="" class=" "/>
-                        <div class="input-group-addon">mm</div>
-                    </div>
-                </div>
-
-                <div class="form-group hidden" hidden>
-                    <label></label>
+            <div class="well container">
+                <div class="container-fluid">
+                    <!-- Possibly include a few extra rows here for mesh size and net width -->
                     <div class="row">
-                        <div class="col-md-2">
-                            <input type="checkbox" id="" name="" placeholder="" />
+                        <div class="col-md-1">
+                            <b>Method #(mnum)</b>
                         </div>
 
-                        <div class="col-md-2">
-                            <input type="checkbox" id="" name="" placeholder="" />
-                        </div>
-
-                        <div class="col-md-2">
-                            <input type="checkbox" id="" name="" placeholder="" />
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="container">
-                <div class="form-group">
-                    <label>Names of those using the net</label>
-                    <textarea id="" name="" class=" " title="Seperate by commas"></textarea>
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="form-group">
-                    <label>Distance the net was pulled</label>
-                    <div class="input-group">
-                        <input type="" id="" class=" " name="" placeholder="" />
-                        <div class="input-group-addon">(units)</div>
-                    </div>
-                </div>
-            </div>
-
-            <hr />
-
-
-            <div id="container" class="">
-
-                <div id="initMethod" class="container well method">
-                    <div class="delete hidden pull-right">
-                        <a id="suicide" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span></a>
-                    </div>
-                    <div class="row">
-                        <div id="methodNumber" class="col-md-1 bold">
-                            Method #1
-                        </div>
                         <div class="col-md-3">
-                            <div class="form-group">
-                                <label>Net Length</label>
-                                <div class="input-group">
-                                    <input type="text" min="0" max="999" id="" class=" " name="" placeholder="" />
-                                    <div class="input-group-addon">(units)</div>
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <label>Choose the type of net you are using</label>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="radio" id="netMethodTypeOption1" class="" value=""/>
+                                            <input type="radio" name="radio" id="netMethodTypeSiene" class="" value="siene" checked="">
+                                            Siene
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="radio" id="netMethodTypeDip" class="" value="dip">
                                             Dip
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+
+                                <div class="col-md-3">
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="radio" id="netMethodTypeOption2" class="" value=""/>
+                                            <input type="radio" name="radio" id="netMethodTypeCrab" class="" value="crab">
                                             Crab
                                         </label>
                                     </div>
                                 </div>
 
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="radio" id="netMethodTypeOptionOther" class=""/>
+                                            <input type="radio" name="radio" id="netMethodTypeOptionOther" class="">
                                             Other
                                         </label>
-
                                     </div>
                                 </div>
-                            </div>
-                            <div id="otherDiv" class="form-group hidden">
-                                <input type="text" class="    form-control-lean" id="netMethodTypeOptionOtherField" name="" placeholder="Other..." />
-                            </div>
-                            <script>
-                                $("#netMethodTypeOptionOther").click(function() {
-                                    $("#otherDiv").removeClass("hidden");
-                                });
-                                $("#netMethodTypeOption1, #netMethodTypeOption2, #netMethodTypeOption3").click(function() {
-                                    $("#otherDiv").addClass("hidden");
-                                });
-                                $( document ).ready(function() {
-                                    $('#netMethodTypeOptionOtherField').keyup(function() {
-                                        $('#netMethodTypeOptionOther').val($(this).val());
+                                <div id="otherDiv" class="form-group hidden">
+                                    <input type="text" class="form-control-lean form-control" id="netMethodTypeOptionOtherField" name="" placeholder="Other...">
+                                </div>
+                                <script>
+                                    $("#netMethodTypeOptionOther").click(function() {
+                                        $("#otherDiv").removeClass("hidden");
                                     });
-                                });
+                                    $("#netMethodTypeSiene, #netMethodTypeDip, #netMethodTypeCrab").click(function() {
+                                        $("#otherDiv").addClass("hidden");
+                                    });
+                                    $( document ).ready(function() {
+                                        $('#netMethodTypeOptionOtherField').keyup(function() {
+                                            $('#netMethodTypeOptionOther').val($(this).val());
+                                        });
+                                    });
+                                    //Radio click event definition
+                                    $('input[type=radio], [name=radio]').on('radio', function(){
+                                        if( $( this ).attr('id') == "netMethodTypeDip" ){
+                                            $('#netLength, #netWidth, #netMeshSize').attr('readonly', 'true');
+                                            $('#netLength, #netWidth, #netMeshSize').removeAttr('required');
+                                        }else{
+                                            $('#netLength, #netWidth, #netMeshSize').removeAttr('readonly');
+                                            $('#netLength, #netWidth, #netMeshSize').attr('required', '');
+                                        }
+                                    });
+                                    //Trigger the event
+                                    $('input[type=radio]').click(function(){$( this ).trigger('radio')});
 
-                            </script>
+                                </script>
+                            </div>
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>Net Length</label>
+                                <div class="input-group">
+                                    <input type="text" min="0" max="999" id="netLength" class="form-control" name="netLength" placeholder="">
+                                    <div class="input-group-addon">test</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>Net Width</label>
+                                <div class="input-group">
+                                    <input type="text" min="0" max="999" id="netWidth" class="form-control" name="netWidth" placeholder="">
+                                    <div class="input-group-addon">test</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>Net Mesh Size</label>
+                                <div class="input-group">
+                                    <input type="text" min="0" max="999" id="netMeshSize" class="form-control" name="netMeshSize" placeholder="">
+                                    <div class="input-group-addon">test</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
                             <div class="form-group">
                                 <label>Length of pull</label>
                                 <div class="input-group">
                                     <!-- Possibly Time, or Distance -->
-                                    <input type="text" min="0" max="9999" id="" class=" " name="" placeholder="" />
-                                    <div class="input-group-addon">(units)</div>
+                                    <input type="text" min="0" max="9999" id="pullLength" class="form-control" name="pullLength" placeholder="">
+                                    <div class="input-group-addon">test</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="table-responsive">
-                        <table id="" class="table table-collapsed g3Tbl1">
-                            <caption></caption>
-                            <thead>
-                            <tr>
-                                <th></th>
-                                <th>Species</th>
-                                <th>Total #</th>
-                                <th>Size of largest</th>
-                                <th>Units</th>
-                            </tr>
-                            </thead>
+                    <hr>
+                    <div class="pseudo-table">
+                        <!-- ~START Pseudo Table START~ -->
+                        <div class="row">
+                            <div class="col-lg-1 bold">
+                                <!-- Empty Cell -->
+                                <div class="visible-sm-block">
+                                    Row Number
+                                </div>
+                            </div>
+                            <div class="col-lg-3 bold">
+                                Organism Name
+                            </div>
+                            <div class="col-lg-2 bold">
+                                Total number of organisms
+                            </div>
+                            <div class="col-lg-2 bold">
+                                Size of largest organism
+                            </div>
+                        </div>
 
-                            <tbody>
-                            <tr>
-                                <td>Ex</td>
-                                <td>Blue Crab(2 males)</td>
-                                <td>2</td>
-                                <td>8.5</td>
-                                <td>cm</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>
-                                    <input type="text" id="r1Species" class="" name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input type="text" min="0" max="999" id="r1Total" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input type="text" min="0" max="999" id="r1Largest" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input list="metricMeasurements" name="" id="r1Units" class=" "/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>
-                                    <input type="text" id="r2Species" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input type="text" min="0" max="999" id="" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input type="text" min="0" max="999" id="" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input list="metricMeasurements" name="" id="" class=" "/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>
-                                    <input type="text" id="r3Species" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input type="text" min="0" max="999" id="" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input type="text" min="0" max="999" id="" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input list="metricMeasurements" name="" id="" class=" "/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>
-                                    <input type="text" id="r4Species" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input type="text" min="0" max="999" id="" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input type="text" min="0" max="999" id="" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input list="metricMeasurements" name="" id="" class=" "/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>
-                                    <input type="text" id="r5Species" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input type="text" min="0" max="999" id="" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input type="text" min="0" max="999" id="" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input list="metricMeasurements" name="" id="" class=" "/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>
-                                    <input type="text" id="r6Species" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input type="text" min="0" max="999" id="" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input type="text" min="0" max="999" id="" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input list="metricMeasurements" name="" id="" class=" "/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>7</td>
-                                <td>
-                                    <input type="text" id="r7Species" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input type="text" min="0" max="999" id="" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input type="text" min="0" max="999" id="" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input list="metricMeasurements" name="" id="" class=" "/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>8</td>
-                                <td>
-                                    <input type="text" id="r8Species" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input type="text" min="0" max="999" id="" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input type="text" min="0" max="999" id="" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input list="metricMeasurements" name="" id="" class=" "/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>9</td>
-                                <td>
-                                    <input type="text" id="r9Species" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input type="text" min="0" max="999" id="" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input type="text" min="0" max="999" id="" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input list="metricMeasurements" name="" id="" class=" "/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>10</td>
-                                <td>
-                                    <input type="text" id="r10Species" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input type="text" min="0" max="999" id="" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input type="text" min="0" max="999" id="" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input list="metricMeasurements" name="" id="" class=" "/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>11</td>
-                                <td>
-                                    <input type="text" id="r11Species" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input type="text" min="0" max="999" id="" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input type="text" min="0" max="999" id="" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input list="metricMeasurements" name="" id="" class=" "/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>12</td>
-                                <td>
-                                    <input type="text" id="r12Species" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input type="text" min="0" max="999" id="" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input type="text" min="0" max="999" id="" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input list="metricMeasurements" name="" id="" class=" "/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>13</td>
-                                <td>
-                                    <input type="text" id="r13Species" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input type="text" min="0" max="999" id="" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input type="text" min="0" max="999" id="" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input list="metricMeasurements" name="" id="" class=" "/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>14</td>
-                                <td>
-                                    <input type="text" id="r14Species" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input type="text" min="0" max="999" id="" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input type="text" min="0" max="999" id="" class=" " name="" placeholder="" />
-                                </td>
-                                <td>
-                                    <input list="metricMeasurements" name="" id="" class=" "/>
-                                </td>
-                            </tr>
+                        <div class="row">
+                            <div class="col-lg-1">
+                                Example
+                            </div>
+                            <div class="col-lg-3">
+                                <input type="text" value="Blue Crab(2 males)" class="form-control" readonly="">
+                            </div>
+                            <div class="col-lg-2">
+                                <input type="text" value="2" class="form-control" readonly="">
+                            </div>
+                            <div class="col-lg-2">
 
-                            <tr>
-                                <td></td>
-                                <td><label>Total Fish in Collection <span id="methodNumber">Method #1</span></label></td>
-                                <td><input type="text" min="0" max="999" id="" class=" " name="" placeholder="" /></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><label>Comments</label></td>
-                                <td colspan="4"><textarea id="methodComments" class=" "></textarea></td>
-                            </tr>
+                                <div class="input-group">
+                                    <input type="" class="form-control" value="8.5" readonly="">
+                                    <div class="input-group-addon">
+                                        test
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                            </tbody>
-                        </table>
+                        <div class="row">
+                            <div class="col-lg-1">
+                                1
+                            </div>
+                            <div class="col-lg-3">
+                                <input type="text" id="Nom" name="" class="form-control" placeholder="Blue Crab(2 males)">
+                            </div>
+                            <div class="col-lg-2">
+                                <input type="text" id="Total" name="" class="form-control" placeholder="2">
+                            </div>
+                            <div class="col-lg-2">
+                                <div class="input-group">
+                                    <input type="number" id="SizeOfLargest" name="" class="form-control" placeholder="">
+                                    <div class="input-group-addon">
+                                        test
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label>Comments</label>
+                                <textarea id="" name="" class="form-control"></textarea>
+                            </div>
+                        </div>
+
                     </div>
+                    <!-- ~END Pseudo Table END~ -->
                 </div>
             </div>
 
             <div class="container">
                 <div class="">
-                    <form class="form-horizontal">
-                        <div class="form-group hidden">
-                            <label class="col-sm-2 control-label">How many extra methods are there?</label>
-                            <div class="col-sm-5">
-                                <input type="text" min="0" max="1" step="1" name="" id="selectMethodChartGenerator" class=""/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="pull-left">
-                                <button type="button" class="btn btn-default" id="addNewMethodChartsN">Add Another Method</button>
-                            </div>
-                        </div>
 
-                    </form>
+                    <div class="form-group hidden">
+                        <label class="col-sm-2 control-label">How many extra methods are there?</label>
+                        <div class="col-sm-5">
+                            <input type="text" min="0" max="1" step="1" name="" id="selectMethodChartGenerator" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="pull-left">
+                            <button type="button" class="btn btn-default" id="addNewMethodChartsN">Add Another Method</button>
+                        </div>
+                    </div>
+
+
                     <script>
                         var clicks = 0;
                         $("#addNewMethodChartsN").click(function() {
@@ -1500,10 +1242,10 @@
 
             <h3>Aquatic Biology Survey Summary</h3>
             <div id="" class="form-group">
-                <label>Collections</label><input type="text" min="0" max="64" name="" placeholder="" id="totalNumberOfCollections" class=" "/>
+                <label>Collections</label><input type="text" min="0" max="64" name="" placeholder="" id="totalNumberOfCollections" class="form-control">
             </div>
             <div id="" class="form-group">
-                <label>Total Individuals Counted</label><input type="text" min="0" max="999" name="" placeholder="" id="totalPopFromAllCollections" class=" "/>
+                <label>Total Individuals Counted</label><input type="text" min="0" max="999" name="" placeholder="" id="totalPopFromAllCollections" class="form-control">
             </div>
 
         </fieldset>
@@ -1527,91 +1269,91 @@
                         <tbody>
                         <tr>
                             <td>1</td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td><!-- maybe a datalist? -->
-                            <td><input type="text" min="0" max="9999" id="" class=" " name="" placeholder="" /></td>
+                            <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                            <td><input type="text" id="" class="form-control" name="" placeholder=""></td><!-- maybe a datalist? -->
+                            <td><input type="text" min="0" max="9999" id="" class="form-control" name="" placeholder=""></td>
                         </tr>
 
                         <tr>
                             <td>2</td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td><!-- maybe a datalist? -->
-                            <td><input type="text" min="0" max="9999" id="" class=" " name="" placeholder="" /></td>
+                            <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                            <td><input type="text" id="" class="form-control" name="" placeholder=""></td><!-- maybe a datalist? -->
+                            <td><input type="text" min="0" max="9999" id="" class="form-control" name="" placeholder=""></td>
                         </tr>
 
                         <tr>
                             <td>3</td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td><!-- maybe a datalist? -->
-                            <td><input type="text" min="0" max="9999" id="" class=" " name="" placeholder="" /></td>
+                            <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                            <td><input type="text" id="" class="form-control" name="" placeholder=""></td><!-- maybe a datalist? -->
+                            <td><input type="text" min="0" max="9999" id="" class="form-control" name="" placeholder=""></td>
                         </tr>
 
                         <tr>
                             <td>4</td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td><!-- maybe a datalist? -->
-                            <td><input type="text" min="0" max="9999" id="" class=" " name="" placeholder="" /></td>
+                            <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                            <td><input type="text" id="" class="form-control" name="" placeholder=""></td><!-- maybe a datalist? -->
+                            <td><input type="text" min="0" max="9999" id="" class="form-control" name="" placeholder=""></td>
                         </tr>
 
                         <tr>
                             <td>5</td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td><!-- maybe a datalist? -->
-                            <td><input type="text" min="0" max="9999" id="" class=" " name="" placeholder="" /></td>
+                            <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                            <td><input type="text" id="" class="form-control" name="" placeholder=""></td><!-- maybe a datalist? -->
+                            <td><input type="text" min="0" max="9999" id="" class="form-control" name="" placeholder=""></td>
                         </tr>
 
                         <tr>
                             <td>6</td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td><!-- maybe a datalist? -->
-                            <td><input type="text" min="0" max="9999" id="" class=" " name="" placeholder="" /></td>
+                            <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                            <td><input type="text" id="" class="form-control" name="" placeholder=""></td><!-- maybe a datalist? -->
+                            <td><input type="text" min="0" max="9999" id="" class="form-control" name="" placeholder=""></td>
                         </tr>
 
                         <tr>
                             <td>7</td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td><!-- maybe a datalist? -->
-                            <td><input type="text" min="0" max="9999" id="" class=" " name="" placeholder="" /></td>
+                            <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                            <td><input type="text" id="" class="form-control" name="" placeholder=""></td><!-- maybe a datalist? -->
+                            <td><input type="text" min="0" max="9999" id="" class="form-control" name="" placeholder=""></td>
                         </tr>
 
                         <tr>
                             <td>8</td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td><!-- maybe a datalist? -->
-                            <td><input type="text" min="0" max="9999" id="" class=" " name="" placeholder="" /></td>
+                            <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                            <td><input type="text" id="" class="form-control" name="" placeholder=""></td><!-- maybe a datalist? -->
+                            <td><input type="text" min="0" max="9999" id="" class="form-control" name="" placeholder=""></td>
                         </tr>
 
                         <tr>
                             <td>9</td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td><!-- maybe a datalist? -->
-                            <td><input type="text" min="0" max="9999" id="" class=" " name="" placeholder="" /></td>
+                            <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                            <td><input type="text" id="" class="form-control" name="" placeholder=""></td><!-- maybe a datalist? -->
+                            <td><input type="text" min="0" max="9999" id="" class="form-control" name="" placeholder=""></td>
                         </tr>
 
                         <tr>
                             <td>10</td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td><!-- maybe a datalist? -->
-                            <td><input type="text" min="0" max="9999" id="" class=" " name="" placeholder="" /></td>
+                            <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                            <td><input type="text" id="" class="form-control" name="" placeholder=""></td><!-- maybe a datalist? -->
+                            <td><input type="text" min="0" max="9999" id="" class="form-control" name="" placeholder=""></td>
                         </tr>
 
                         <tr>
                             <td>11</td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td><!-- maybe a datalist? -->
-                            <td><input type="text" min="0" max="9999" id="" class=" " name="" placeholder="" /></td>
+                            <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                            <td><input type="text" id="" class="form-control" name="" placeholder=""></td><!-- maybe a datalist? -->
+                            <td><input type="text" min="0" max="9999" id="" class="form-control" name="" placeholder=""></td>
                         </tr>
 
                         <tr>
                             <td>12</td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td><!-- maybe a datalist? -->
-                            <td><input type="text" min="0" max="9999" id="" class=" " name="" placeholder="" /></td>
+                            <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                            <td><input type="text" id="" class="form-control" name="" placeholder=""></td><!-- maybe a datalist? -->
+                            <td><input type="text" min="0" max="9999" id="" class="form-control" name="" placeholder=""></td>
                         </tr>
 
                         <tr>
                             <td>Description of unknown organisms</td>
-                            <td colspan="3"><textarea id="" class=" " placeholder=""></textarea></td>
+                            <td colspan="3"><textarea id="" class="form-control" placeholder=""></textarea></td>
                         </tr>
                         </tbody>
                     </table>
@@ -1619,225 +1361,273 @@
             </div>
         </fieldset>
 
-    </section>
+    </section></form>
 
-    <div id="g4REF" class="ref"></div>
-    <section class="container" id="g4">
+<div id="g4REF" class="ref"></div>
+<section class="container" id="g4">
 
-        <h1>Chemical Analysis</h1>
-        <h2>Water Temperature, Dissolved Oxygen, and pH</h2>
+    <h1>Chemical Analysis</h1>
+    <h2>Water Temperature, Dissolved Oxygen, and pH</h2>
 
-        <div id="g4FS1REF" class="ref"></div>
-        <fieldset id="g4FS1" class="container">
-            <h3>Water Temperature</h3>
+    <div id="g4FS1REF" class="ref"></div>
+    <fieldset id="g4FS1" class="container">
+        <h3>Water Temperature</h3>
 
-            <div id="" class="table-responsive">
-                <table class="table-condensed">
-                    <thead>
-                    <tr>
-                        <th></th>
-                        <th>Location</th>
-                        <th>Time</th>
-                        <th >&deg;C</th>
-                        <th >&deg;F</th>
-                    </tr>
-                    </thead>
+        <div id="" class="table-responsive">
+            <table class="table-condensed">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Location</th>
+                    <th>Time</th>
+                    <th>°C</th>
+                    <th>°F</th>
+                </tr>
+                </thead>
 
-                    <tbody>
-                    <tr>
-                        <td>Trial 1</td>
-                        <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                        <td><input type="time" id="" class=" " name="" placeholder="" /></td>
+                <tbody>
+                <tr>
+                    <td>Trial 1</td>
+                    <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                    <td><input type="time" id="" class="form-control" name="" placeholder=""></td>
 
-                        <td >
-                            <div class="input-group">
-                                <input type="text" min="-99" max="99" id="" class=" " name="" placeholder="" />
-                                <div class="input-group-addon degree">&deg;C</div>
-                            </div>
-                        </td>
+                    <td>
+                        <div class="input-group">
+                            <input type="text" min="-99" max="99" id="" class="form-control form-control-lean" name="" placeholder="">
+                            <div class="input-group-addon degree hidden-xs">°C</div>
+                        </div>
+                    </td>
 
-                        <td>
-                            <div class="input-group">
-                                <input type="text" min="-99" max="99" id="" class=" " name="" placeholder="" />
-                                <div class="input-group-addon degree">&deg;F</div>
-                            </div>
-                        </td>
-                    </tr>
+                    <td>
+                        <div class="input-group">
+                            <input type="text" min="-99" max="99" id="" class="form-control form-control-lean" name="" placeholder="">
+                            <div class="input-group-addon degree hidden-xs">°F</div>
+                        </div>
+                    </td>
+                </tr>
 
-                    <tr>
-                        <td>Trial 2</td>
-                        <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                        <td><input type="time" id="" class=" " name="" placeholder="" /></td>
+                <tr>
+                    <td>Trial 2</td>
+                    <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                    <td><input type="time" id="" class="form-control" name="" placeholder=""></td>
 
-                        <td>
-                            <div class="input-group">
-                                <input type="text" min="-99" max="99" id="" class=" " name="" placeholder="" />
-                                <div class="input-group-addon degree">&deg;C</div>
-                            </div>
-                        </td>
+                    <td>
+                        <div class="input-group">
+                            <input type="text" min="-99" max="99" id="" class="form-control form-control-lean" name="" placeholder="">
+                            <div class="input-group-addon degree hidden-xs">°C</div>
+                        </div>
+                    </td>
 
-                        <td>
-                            <div class="input-group">
-                                <input type="text" min="-99" max="99" id="" class=" " name="" placeholder="" />
-                                <div class="input-group-addon degree">&deg;F</div>
-                            </div>
-                        </td>
-                    </tr>
+                    <td>
+                        <div class="input-group">
+                            <input type="text" min="-99" max="99" id="" class="form-control form-control-lean" name="" placeholder="">
+                            <div class="input-group-addon degree hidden-xs">°F</div>
+                        </div>
+                    </td>
+                </tr>
 
-                    <tr>
-                        <td>Trial 3</td>
-                        <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                        <td><input type="time" id="" class=" " name="" placeholder="" /></td>
+                <tr>
+                    <td>Trial 3</td>
+                    <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                    <td><input type="time" id="" class="form-control" name="" placeholder=""></td>
 
-                        <td>
-                            <div class="input-group">
-                                <input type="text" min="-99" max="99" id="" class=" " name="" placeholder="" />
-                                <div class="input-group-addon degree">&deg;C</div>
-                            </div>
-                        </td>
+                    <td>
+                        <div class="input-group">
+                            <input type="text" min="-99" max="99" id="" class="form-control form-control-lean" name="" placeholder="">
+                            <div class="input-group-addon degree hidden-xs">°C</div>
+                        </div>
+                    </td>
 
-                        <td>
-                            <div class="input-group">
-                                <input type="text" min="-99" max="99" id="" class=" " name="" placeholder="" />
-                                <div class="input-group-addon degree">&deg;F</div>
-                            </div>
-                        </td>
-                    </tr>
+                    <td>
+                        <div class="input-group">
+                            <input type="text" min="-99" max="99" id="" class="form-control form-control-lean" name="" placeholder="">
+                            <div class="input-group-addon degree hidden-xs">°F</div>
+                        </div>
+                    </td>
+                </tr>
 
-                    <tr>
-                        <td>Average</td>
-                        <td><input type="text" id="" class="  disabled" name="" placeholder="" disabled/></td>
-                        <td><input type="time" id="" class="  disabled" name="" placeholder="" disabled/></td>
+                <tr>
+                    <td>Average</td>
+                    <td><input type="text" id="" class="disabled form-control" name="" placeholder="" disabled=""></td>
+                    <td><input type="time" id="" class="disabled form-control" name="" placeholder="" disabled=""></td>
 
-                        <td>
-                            <div class="input-group">
-                                <input type="text" min="-99" max="99" id="" class=" " name="" placeholder="" />
-                                <div class="input-group-addon degree">&deg;C</div>
-                            </div>
-                        </td>
+                    <td>
+                        <div class="input-group">
+                            <input type="text" min="-99" max="99" id="" class="form-control form-control-lean" name="" placeholder="">
+                            <div class="input-group-addon degree hidden-xs">°C</div>
+                        </div>
+                    </td>
 
-                        <td>
-                            <div class="input-group">
-                                <input type="text" min="-99" max="99" id="" class=" " name="" placeholder="" />
-                                <div class="input-group-addon degree">&deg;F</div>
-                            </div>
-                        </td>
-                    </tr>
+                    <td>
+                        <div class="input-group">
+                            <input type="text" min="-99" max="99" id="" class="form-control form-control-lean" name="" placeholder="">
+                            <div class="input-group-addon degree hidden-xs">°F</div>
+                        </div>
+                    </td>
+                </tr>
 
 
-                    </tbody>
-                </table>
-            </div>
-        </fieldset>
+                </tbody>
+            </table>
+        </div>
+    </fieldset>
 
-        <div id="g4FS2REF" class="ref"></div>
-        <fieldset id="g4FS2" class="container">
-            <h3>Dissolved Oxygen</h3>
+    <div id="g4FS2REF" class="ref"></div>
+    <fieldset id="g4FS2" class="container">
+        <h3>Dissolved Oxygen</h3>
 
-            <div id="" class="table-responsive">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th></th>
-                        <th>Location</th>
-                        <th>Time</th>
-                        <th>&deg;C</th>
-                        <th>DO(mg/L or ppm)</th>
-                        <th>% Saturation</th>
-                    </tr>
-                    </thead>
+        <div id="" class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Location</th>
+                    <th>Time</th>
+                    <th>°C</th>
+                    <th>DO(mg/L or ppm)</th>
+                    <th>% Saturation</th>
+                </tr>
+                </thead>
 
-                    <tbody>
-                    <tr>
-                        <td>Trial 1</td>
-                        <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                        <td><input type="time" id="" class=" " name="" placeholder="" /></td>
+                <tbody>
+                <tr>
+                    <td>Trial 1</td>
+                    <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                    <td><input type="time" id="" class="form-control" name="" placeholder=""></td>
 
-                        <td>
-                            <div class="input-group">
-                                <input type="text" min="-99" max="9999" id="" class=" " name="" placeholder="" />
-                                <div class="input-group-addon">&deg;C</div>
-                            </div>
-                        </td>
+                    <td>
+                        <div class="input-group">
+                            <input type="text" min="-99" max="9999" id="" class="form-control" name="" placeholder="">
+                            <div class="input-group-addon">°C</div>
+                        </div>
+                    </td>
 
-                        <td>
-                            <div class="input-group">
-                                <input type="text" min="-99" max="9999" id="" class=" " name="" placeholder="" />
-                                <div class="input-group-addon">mg/L</div>
-                            </div>
-                        </td>
+                    <td>
+                        <div class="input-group">
+                            <input type="text" min="-99" max="9999" id="" class="form-control" name="" placeholder="">
+                            <div class="input-group-addon">mg/L</div>
+                        </div>
+                    </td>
 
-                        <td>
-                            <div class="input-group">
-                                <input type="text" min="-99" max="9999" id="" class=" " name="" placeholder="" />
-                                <div class="input-group-addon">%</div>
-                            </div>
-                        </td>
-                    </tr>
+                    <td>
+                        <div class="input-group">
+                            <input type="text" min="-99" max="9999" id="" class="form-control" name="" placeholder="">
+                            <div class="input-group-addon">%</div>
+                        </div>
+                    </td>
+                </tr>
 
-                    <tr>
-                        <td>Trial 2</td>
-                        <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                        <td><input type="time" id="" class=" " name="" placeholder="" /></td>
+                <tr>
+                    <td>Trial 2</td>
+                    <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                    <td><input type="time" id="" class="form-control" name="" placeholder=""></td>
 
-                        <td>
-                            <div class="input-group">
-                                <input type="text" min="-99" max="9999" id="" class=" " name="" placeholder="" />
-                                <div class="input-group-addon">&deg;C</div>
-                            </div>
-                        </td>
+                    <td>
+                        <div class="input-group">
+                            <input type="text" min="-99" max="9999" id="" class="form-control" name="" placeholder="">
+                            <div class="input-group-addon">°C</div>
+                        </div>
+                    </td>
 
-                        <td>
-                            <div class="input-group">
-                                <input type="text" min="-99" max="9999" id="" class=" " name="" placeholder="" />
-                                <div class="input-group-addon">mg/L</div>
-                            </div>
-                        </td>
+                    <td>
+                        <div class="input-group">
+                            <input type="text" min="-99" max="9999" id="" class="form-control" name="" placeholder="">
+                            <div class="input-group-addon">mg/L</div>
+                        </div>
+                    </td>
 
-                        <td>
-                            <div class="input-group">
-                                <input type="text" min="-99" max="9999" id="" class=" " name="" placeholder="" />
-                                <div class="input-group-addon">%</div>
-                            </div>
-                        </td>
-                    </tr>
+                    <td>
+                        <div class="input-group">
+                            <input type="text" min="-99" max="9999" id="" class="form-control" name="" placeholder="">
+                            <div class="input-group-addon">%</div>
+                        </div>
+                    </td>
+                </tr>
 
-                    <tr>
-                        <td>Trial 3</td>
-                        <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                        <td><input type="time" id="" class=" " name="" placeholder="" /></td>
+                <tr>
+                    <td>Trial 3</td>
+                    <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                    <td><input type="time" id="" class="form-control" name="" placeholder=""></td>
 
-                        <td>
-                            <div class="input-group">
-                                <input type="text" min="-99" max="9999" id="" class=" " name="" placeholder="" />
-                                <div class="input-group-addon">&deg;C</div>
-                            </div>
-                        </td>
+                    <td>
+                        <div class="input-group">
+                            <input type="text" min="-99" max="9999" id="" class="form-control" name="" placeholder="">
+                            <div class="input-group-addon">°C</div>
+                        </div>
+                    </td>
 
-                        <td>
-                            <div class="input-group">
-                                <input type="text" min="-99" max="9999" id="" class=" " name="" placeholder="" />
-                                <div class="input-group-addon">mg/L</div>
-                            </div>
-                        </td>
+                    <td>
+                        <div class="input-group">
+                            <input type="text" min="-99" max="9999" id="" class="form-control" name="" placeholder="">
+                            <div class="input-group-addon">mg/L</div>
+                        </div>
+                    </td>
 
-                        <td>
-                            <div class="input-group">
-                                <input type="text" min="-99" max="99" id="" class=" " name="" placeholder="" />
-                                <div class="input-group-addon">%</div>
-                            </div>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </fieldset>
+                    <td>
+                        <div class="input-group">
+                            <input type="text" min="-99" max="99" id="" class="form-control" name="" placeholder="">
+                            <div class="input-group-addon">%</div>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </fieldset>
 
-        <div id="g4FS3REF" class="ref"></div>
-        <fieldset id="g4FS3" class="container">
-            <h3 class="">pH</h3>
+    <div id="g4FS3REF" class="ref"></div>
+    <fieldset id="g4FS3" class="container">
+        <h3 class="">pH</h3>
 
-            <div id="" class="table-responsive ">
+        <div id="" class="table-responsive ">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Location</th>
+                    <th>Time</th>
+                    <th>Reading 1</th>
+                    <th>Reading 2</th>
+                    <th>Reading 3</th>
+                    <th>Average</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td>LaMotte wQ Kit</td>
+                    <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                    <td><input type="time" id="" class="form-control" name="" placeholder=""></td>
+                    <td><input type="text" min="" max="" id="" class="form-control" name="" placeholder=""></td>
+                    <td><input type="text" min="" max="" id="" class="form-control" name="" placeholder=""></td>
+                    <td><input type="text" min="" max="" id="" class="form-control" name="" placeholder=""></td>
+                    <td><input type="text" min="" max="" id="" class="form-control" name="" placeholder=""></td>
+                </tr>
+
+                <tr>
+                    <td>Optional test Method</td>
+                    <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                    <td><input type="time" id="" class="form-control" name="" placeholder=""></td>
+                    <td><input type="text" min="" max="" id="" class="form-control" name="" placeholder=""></td>
+                    <td><input type="text" min="" max="" id="" class="form-control" name="" placeholder=""></td>
+                    <td><input type="text" min="" max="" id="" class="form-control" name="" placeholder=""></td>
+                    <td><input type="text" min="" max="" id="" class="form-control" name="" placeholder=""></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+
+    </fieldset>
+
+    <div id="g4FS4REF" class="ref"></div>
+    <fieldset id="g4FS4" class="container">
+        <h3>Salinity and Turbidity</h3>
+
+        <div class="">
+            <h4>Salinity</h4>
+            <div class="table-responsive">
                 <table class="table">
                     <thead>
                     <tr>
@@ -1854,298 +1644,267 @@
                     <tbody>
                     <tr>
                         <td>LaMotte wQ Kit</td>
-                        <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                        <td><input type="time" id="" class=" " name="" placeholder="" /></td>
-                        <td><input type="text" min="" max="" id="" class=" " name="" placeholder="" /></td>
-                        <td><input type="text" min="" max="" id="" class=" " name="" placeholder="" /></td>
-                        <td><input type="text" min="" max="" id="" class=" " name="" placeholder="" /></td>
-                        <td><input type="text" min="" max="" id="" class=" " name="" placeholder="" /></td>
+                        <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                        <td><input type="time" id="" class="form-control" name="" placeholder=""></td>
+                        <td><input type="text" min="" max="" id="" class="form-control" name="" placeholder=""></td>
+                        <td><input type="text" min="" max="" id="" class="form-control" name="" placeholder=""></td>
+                        <td><input type="text" min="" max="" id="" class="form-control" name="" placeholder=""></td>
+                        <td><input type="text" min="" max="" id="" class="form-control" name="" placeholder=""></td>
                     </tr>
 
                     <tr>
                         <td>Optional test Method</td>
-                        <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                        <td><input type="time" id="" class=" " name="" placeholder="" /></td>
-                        <td><input type="text" min="" max="" id="" class=" " name="" placeholder="" /></td>
-                        <td><input type="text" min="" max="" id="" class=" " name="" placeholder="" /></td>
-                        <td><input type="text" min="" max="" id="" class=" " name="" placeholder="" /></td>
-                        <td><input type="text" min="" max="" id="" class=" " name="" placeholder="" /></td>
+                        <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                        <td><input type="time" id="" class="form-control" name="" placeholder=""></td>
+                        <td><input type="text" min="" max="" id="" class="form-control" name="" placeholder=""></td>
+                        <td><input type="text" min="" max="" id="" class="form-control" name="" placeholder=""></td>
+                        <td><input type="text" min="" max="" id="" class="form-control" name="" placeholder=""></td>
+                        <td><input type="text" min="" max="" id="" class="form-control" name="" placeholder=""></td>
                     </tr>
                     </tbody>
                 </table>
             </div>
-
-
-
-        </fieldset>
-
-        <div id="g4FS4REF" class="ref"></div>
-        <fieldset id="g4FS4" class="container">
-            <h3>Salinity and Turbidity</h3>
-
-            <div class="">
-                <h4>Salinity</h4>
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th></th>
-                            <th>Location</th>
-                            <th>Time</th>
-                            <th>Reading 1</th>
-                            <th>Reading 2</th>
-                            <th>Reading 3</th>
-                            <th>Average</th>
-                        </tr>
-                        </thead>
-
-                        <tbody>
-                        <tr>
-                            <td>LaMotte wQ Kit</td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="time" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" min="" max="" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" min="" max="" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" min="" max="" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" min="" max="" id="" class=" " name="" placeholder="" /></td>
-                        </tr>
-
-                        <tr>
-                            <td>Optional test Method</td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="time" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" min="" max="" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" min="" max="" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" min="" max="" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" min="" max="" id="" class=" " name="" placeholder="" /></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="">
-                <h4>Turbidity</h4>
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th>Technique</th>
-                            <th>Location</th>
-                            <th>Time</th>
-                            <th>Reading 1</th>
-                            <th>Reading 2</th>
-                            <th>Reading 3</th>
-                            <th>Average</th>
-                            <th>Units</th>
-                        </tr>
-                        </thead>
-
-                        <tbody>
-                        <tr>
-                            <td>Secchi Disk</td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="time" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                            <td>Ft/cm</td>
-                        </tr>
-
-                        <tr>
-                            <td>Short Sight Tube</td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="time" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                            <td>JTUs</td>
-                        </tr>
-
-                        <tr>
-                            <td>Long Sight Tube</td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="time" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                            <td>cm/meter</td>
-                        </tr>
-
-                        <tr>
-                            <td>Turbidimeter</td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="time" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                            <td><input type="text" id="" class=" " name="" placeholder="" /></td>
-                            <td>NTUs</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </fieldset>
-    </section>
-
-    <div id="g5REF" class="ref"></div>
-    <section class="container" id="g5">
-
-        <h1 class="">Documentation</h1>
-        <!-- This form must be modular -->
-
-        <div id="g5FS1REF" class="ref"></div>
-        <fieldset id="g5FS1" class="container">
-            <div class="form-group">
-                <label>Please upload the Photographs you've taken on-site</label>
-                <input type="file" name="" id="" multiple/>
-                <label>Give a short Description</label>
-                <textarea name="" placeholder="" id="" class=" "></textarea>
-            </div>
-        </fieldset>
-
-        <div id="g5FS2REF" class="ref"></div>
-        <fieldset id="g5FS2" class="container">
-            <h2 class="">Team Members</h2>
-
-            <div id="" class="form-group">
-                <label for="" class="">Group 1(Physical Data)</label>
-                <textarea id="" class=" "></textarea>
-            </div>
-
-            <div id="" class="form-group">
-                <label for="" class="">Group 2(Site Description)</label>
-                <textarea id="" class=" "></textarea>
-            </div>
-
-            <div id="" class="form-group">
-                <label for="" class="">Group 3(Biological Sampling)</label>
-                <textarea id="" class=" "></textarea>
-            </div>
-
-            <div id="" class="form-group">
-                <label for="" class="">Group 4(Chemical Data)</label>
-                <textarea id="" class=" "></textarea>
-            </div>
-        </fieldset>
-
-        <div id="g5FS3REF" class="ref"></div>
-        <fieldset id="g5FS3" class="container">
-            <h2>Final Questions and Group Photo</h2>
-
-            <div id="" class="">
-                <label class="">Questions</label>
-                <textarea name="" placeholder="" id="" class=" "></textarea>
-            </div>
-
-            <div id="" class="">
-                <label class="">Upload Picture of Team</label>
-                <input type="file" id="" class=" " name="" placeholder="" />
-            </div>
-        </fieldset>
-
-    </section>
-
-    <div id="notificationCenter" class="container">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <h3><u>Notifications</u></h3>
-                        <ul id="flag-center" class="list-group">
-                            <li class="hidden list-group-item form-flag-container">
-                                <div role="alert" class="form-flag-init alert">
-                                        <span id="flagIcon" class="glyphicon"></span><strong class="form-flag-title"></strong>&nbsp;<span class="form-flag-text"></span>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="list-group-item">
-                        <flag-center>
-                            <flag-danger title="Error!">You made a mistake in group three</flag-danger>
-                        </flag-center>
-                    </li>
-                    <li class="list-group-item">
-                        <button type="submit" class="btn btn-default btn-lg" value="Submit" id="sub">Submit</button>
-                        <!-- Remove the auto-submit function -->
-                    </li>
-                </ul>
-
-
-            </div>
-            <script>
-
-                $("#sub").click(function() {
-                    $("#lab").trigger('submit');
-                });
-            </script>
         </div>
+
+        <div class="">
+            <h4>Turbidity</h4>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Technique</th>
+                        <th>Location</th>
+                        <th>Time</th>
+                        <th>Reading 1</th>
+                        <th>Reading 2</th>
+                        <th>Reading 3</th>
+                        <th>Average</th>
+                        <th>Units</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td>Secchi Disk</td>
+                        <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                        <td><input type="time" id="" class="form-control" name="" placeholder=""></td>
+                        <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                        <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                        <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                        <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                        <td>Ft/cm</td>
+                    </tr>
+
+                    <tr>
+                        <td>Short Sight Tube</td>
+                        <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                        <td><input type="time" id="" class="form-control" name="" placeholder=""></td>
+                        <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                        <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                        <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                        <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                        <td>JTUs</td>
+                    </tr>
+
+                    <tr>
+                        <td>Long Sight Tube</td>
+                        <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                        <td><input type="time" id="" class="form-control" name="" placeholder=""></td>
+                        <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                        <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                        <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                        <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                        <td>cm/meter</td>
+                    </tr>
+
+                    <tr>
+                        <td>Turbidimeter</td>
+                        <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                        <td><input type="time" id="" class="form-control" name="" placeholder=""></td>
+                        <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                        <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                        <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                        <td><input type="text" id="" class="form-control" name="" placeholder=""></td>
+                        <td>NTUs</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </fieldset>
+</section>
+
+<div id="g5REF" class="ref"></div>
+<section class="container" id="g5">
+
+    <h1 class="">Documentation</h1>
+    <!-- This form must be modular -->
+
+    <div id="g5FS1REF" class="ref"></div>
+    <fieldset id="g5FS1" class="container">
+        <div class="form-group">
+            <label>Please upload the Photographs you've taken on-site</label>
+            <input type="file" name="" id="" multiple="" class="form-control">
+            <label>Give a short Description</label>
+            <textarea name="" placeholder="" id="" class="form-control"></textarea>
+        </div>
+    </fieldset>
+
+    <div id="g5FS2REF" class="ref"></div>
+    <fieldset id="g5FS2" class="container">
+        <h2 class="">Team Members</h2>
+
+        <div id="" class="form-group">
+            <label for="" class="">Group 1(Physical Data)</label>
+            <textarea id="" class="form-control"></textarea>
+        </div>
+
+        <div id="" class="form-group">
+            <label for="" class="">Group 2(Site Description)</label>
+            <textarea id="" class="form-control"></textarea>
+        </div>
+
+        <div id="" class="form-group">
+            <label for="" class="">Group 3(Biological Sampling)</label>
+            <textarea id="" class="form-control"></textarea>
+        </div>
+
+        <div id="" class="form-group">
+            <label for="" class="">Group 4(Chemical Data)</label>
+            <textarea id="" class="form-control"></textarea>
+        </div>
+    </fieldset>
+
+    <div id="g5FS3REF" class="ref"></div>
+    <fieldset id="g5FS3" class="container">
+        <h2>Final Questions and Group Photo</h2>
+
+        <div id="" class="">
+            <label class="">Questions</label>
+            <textarea name="" placeholder="" id="" class="form-control"></textarea>
+        </div>
+
+        <div id="" class="">
+            <label class="">Upload Picture of Team</label>
+            <input type="file" id="" class="form-control" name="" placeholder="">
+        </div>
+    </fieldset>
+
+</section>
+
+<div id="notificationCenter" class="container">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <h3><u>Notifications</u></h3>
+                    <ul id="flag-center" class="list-group">
+                        <li class="hidden list-group-item form-flag-container">
+                            <div role="alert" class="form-flag-init alert">
+                                <span id="flagIcon" class="glyphicon"></span><strong class="form-flag-title"></strong>&nbsp;<span class="form-flag-text"></span>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="list-group-item">
+                    <flag-center id="flag-center" head="Notification Center">
+
+                        <h3 class="style-scope flag-center">Notification Center</h3>
+
+                        <flag-danger title="Error!" class="x-scope flag-danger-0">
+
+
+                            <div class="style-scope flag-danger">
+                                <iron-icon icon="error" class="style-scope flag-danger x-scope iron-icon-1"><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" class="style-scope iron-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope iron-icon"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" class="style-scope iron-icon"></path></g></svg>
+                                </iron-icon>
+                                <strong class="style-scope flag-danger">Error!</strong>
+                                You made a mistake in group three
+                            </div>
+
+                        </flag-danger>
+
+                    </flag-center>
+                </li>
+                <li class="list-group-item">
+                    <button type="submit" class="btn btn-default btn-lg" value="Submit" id="sub">Submit</button>
+
+                    <input class="btn btn-default form-control" type="button" id="ajax" name="ajax" value="Ajax Call">
+
+                    <!-- Remove the auto-submit function -->
+                </li>
+            </ul>
+
+
+        </div>
+        <script>
+
+            $("#sub").click(function() {
+                $("#lab").trigger('submit');
+            });
+        </script>
     </div>
+</div>
 
-    <!-- Nothing form related beyond this point -->
+<!-- Nothing form related beyond this point -->
 
-    <section id="" class="hidden" hidden>
-        <!-- Only for Datalists -->
-        <datalist id="cardinalDirectionsSimple" class="">
-            <option id="" class="" value="North">
-            <option id="" class="" value="South">
-            <option id="" class="" value="East">
-            <option id="" class="" value="West">
-        </datalist>
-        <datalist id="cardinalDirections" class="">
-            <option id="" class="" value="North">
-            <option id="" class="" value="Northeast">
-            <option id="" class="" value="Northwest">
-            <option id="" class="" value="South">
-            <option id="" class="" value="SouthEast">
-            <option id="" class="" value="SouthWest">
-            <option id="" class="" value="East">
-            <option id="" class="" value="West">
-        </datalist>
-        <datalist id="tideTableOptions">
-            <option id="" class="" value="Rising">
-            <option id="" class="" value="Falling">
-            <option id="" class="" value="Unchanged">
-        </datalist>
-        <datalist id="generalSpecificCurrentMeasureLocations">
-            <option id="" class="" value="Test val 1">
-            <option id="" class="" value="test val 2">
-            <option id="" class="" value="">
-            <option id="" class="" value="">
-            <option id="" class="" value="">
-            <option id="" class="" value="">
-        </datalist>
-        <datalist id="tideTypes">
-            <option id="" class="" value="Ebb Tide">
-            <option id="" class="" value="Flood(Flow) Tide">
-            <option id="" class="" value="Slack Tide">
-        </datalist>
-        <datalist id="beaufortScaleDescriptions">
-            <option id="" class="" value="calm">
-            <option id="" class="" value="light air">
-            <option id="" class="" value="light breeze">
-            <option id="" class="" value="gentle brezee">
-            <option id="" class="" value="moderate breeze">
-            <option id="" class="" value="fresh breeze">
-            <option id="" class="" value="strong breeze">
-            <option id="" class="" value="near gale">
-        </datalist>
-        <datalist id="metricMeasurements">
-            <option id="" class="" value="km">
-            <option id="" class="" value="m">
-            <option id="" class="" value="dm">
-            <option id="" class="" value="cm">
-            <option id="" class="" value="mm">
-            <option id="" class="" value="micro">
-            <option id="" class="" value="nm">
-            <option id="" class="" value="angstrom">
-        </datalist>
-    </section>
-</form>
+<section id="" class="hidden" hidden="">
+    <!-- Only for Datalists -->
+    <datalist id="cardinalDirectionsSimple" class="">
+        <option id="" class="" value="North">
+        </option><option id="" class="" value="South">
+        </option><option id="" class="" value="East">
+        </option><option id="" class="" value="West">
+        </option></datalist>
+    <datalist id="cardinalDirections" class="">
+        <option id="" class="" value="North">
+        </option><option id="" class="" value="Northeast">
+        </option><option id="" class="" value="Northwest">
+        </option><option id="" class="" value="South">
+        </option><option id="" class="" value="SouthEast">
+        </option><option id="" class="" value="SouthWest">
+        </option><option id="" class="" value="East">
+        </option><option id="" class="" value="West">
+        </option></datalist>
+    <datalist id="tideTableOptions">
+        <option id="" class="" value="Rising">
+        </option><option id="" class="" value="Falling">
+        </option><option id="" class="" value="Unchanged">
+        </option></datalist>
+    <datalist id="generalSpecificCurrentMeasureLocations">
+        <option id="" class="" value="Test val 1">
+        </option><option id="" class="" value="test val 2">
+        </option><option id="" class="" value="">
+        </option><option id="" class="" value="">
+        </option><option id="" class="" value="">
+        </option><option id="" class="" value="">
+        </option></datalist>
+    <datalist id="tideTypes">
+        <option id="" class="" value="Ebb Tide">
+        </option><option id="" class="" value="Flood(Flow) Tide">
+        </option><option id="" class="" value="Slack Tide">
+        </option></datalist>
+    <datalist id="beaufortScaleDescriptions">
+        <option id="" class="" value="calm">
+        </option><option id="" class="" value="light air">
+        </option><option id="" class="" value="light breeze">
+        </option><option id="" class="" value="gentle brezee">
+        </option><option id="" class="" value="moderate breeze">
+        </option><option id="" class="" value="fresh breeze">
+        </option><option id="" class="" value="strong breeze">
+        </option><option id="" class="" value="near gale">
+        </option></datalist>
+    <datalist id="metricMeasurements">
+        <option id="" class="" value="km">
+        </option><option id="" class="" value="m">
+        </option><option id="" class="" value="dm">
+        </option><option id="" class="" value="cm">
+        </option><option id="" class="" value="mm">
+        </option><option id="" class="" value="micro">
+        </option><option id="" class="" value="nm">
+        </option><option id="" class="" value="angstrom">
+        </option></datalist>
+</section>
+
 
 <section id="footer" class="">
     <footer class="footer">
@@ -2164,5 +1923,5 @@
         </p>
     </footer>
 </section>
-</body>
-</html>
+
+</body></html>
