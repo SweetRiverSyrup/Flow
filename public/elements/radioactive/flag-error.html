@@ -1,0 +1,63 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<!--
+`new-element`
+Just trying to understand polymer
+
+@demo demo/index.html 
+-->
+
+<dom-module id="flag-error">
+  <template>
+    <style>
+      :host {
+	  --flag-danger: {
+			color:#1E0008;
+			background-color:#F9818A;
+			padding: 15px;
+			margin: 7.5px;
+			border-radius: 3.74px;
+        };
+		display: block;
+		padding: 15px;
+		margin: 7.5px;
+		border-radius: 3.74px;
+		
+		@apply(--flag-danger);
+		}
+    </style>
+    
+	<div>
+		<iron-icon icon='error'></iron-icon>
+		<strong>{{title}}</strong>
+        It seems you've made a mistake&nbsp;<a href$="#{{ref}}">here</a>.
+        Please check&nbsp;<content></content>[[msg]]&nbsp;and make sure it's correct!
+	</div>
+	
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'flag-error',
+
+      properties: {
+		title: {
+          type: String,
+          value: 'Error!',
+		  reflectToAttribute: true
+        },
+          ref: {
+              type: String,
+              reflectToAttribute: true
+          },
+          msg: {
+              type: String,
+              reflectToAttribute: true
+          },
+      }
+	
+	
+    });
+  </script>
+</dom-module>

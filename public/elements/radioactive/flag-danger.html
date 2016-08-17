@@ -1,0 +1,55 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<!--
+`new-element`
+Just trying to understand polymer
+
+@demo demo/index.html 
+-->
+
+<dom-module id="flag-danger">
+  <template>
+    <style>
+      :host {
+	  --flag-danger: {
+			color:#1E0008;
+			background-color:#F9818A;
+			padding: 15px;
+			margin: 7.5px;
+			border-radius: 3.74px;
+        };
+		display: block;
+		padding: 15px;
+		margin: 7.5px;
+		border-radius: 3.74px;
+		
+		@apply(--flag-danger);
+		}
+    </style>
+    
+	<div>
+		<iron-icon icon='error'></iron-icon>
+		<strong>[[title]]</strong>
+		<content>
+		</content>
+	</div>
+	
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'flag-danger',
+
+      properties: {
+		title: {
+          type: String,
+          value: 'Whoah!',
+		  reflectToAttribute: true
+        }
+      }
+	
+	
+    });
+  </script>
+</dom-module>

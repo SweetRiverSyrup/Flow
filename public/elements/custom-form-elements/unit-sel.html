@@ -1,0 +1,108 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<!--
+`unit-sel`
+Documenting Elements
+
+@demo demo/index.html 
+-->
+
+<dom-module id="unit-sel">
+    <template>
+        <style>
+            :host {
+                display: block;
+                background-color: inherit;
+                width: min-content;
+                width: -webkit-min-content;
+                width: -moz-min-content;
+                max-width: 43px;
+            }
+
+            input.notform {
+                background-color: inherit;
+                border: 0;
+                outline: none;
+                margin: 0;
+                padding: 0;
+                width: inherit;
+                max-width: inherit;
+            }
+        </style>
+        <input list$="{{set}}" type="text" id="unitselect" class="notform" value="{{value::change}}"/>
+
+        <datalist id="metric">
+            <select>
+                <option class="" value="km" label="km">
+                <option class="" value="m" label="m">
+                <option class="" value="cm" label="cm">
+                <option class="" value="mm" label="mm">
+            </select>
+        </datalist>
+        <datalist id="imperial">
+            <select>
+                <option class="" value="in" label="in">
+                <option class="" value="ft" label="ft">
+                <option class="" value="yrd" label="yrd">
+            </select>
+        </datalist>
+
+        <datalist id="all">
+            <select>
+                <option on-tap="setVal" class="" value="in" label="in">
+                <option on-tap="setVal" class="" value="ft" label="ft">
+                <option on-tap="setVal" class="" value="yrd" label="yrd">
+                <option on-tap="setVal" class="" value="km" label="km">
+                <option on-tap="setVal" class="" value="m" label="m">
+                <option on-tap="setVal" class="" value="cm" label="cm">
+                <option on-tap="setVal" class="" value="mm" label="mm">
+            </select>
+        </datalist>
+
+        <datalist id="temperature">
+            <select>
+                <option on-tap="setVal" value="C" label="Celsius"/>
+                <option on-tap="setVal" value="F" label="Fahrenheit"/>
+                <option on-tap="setVal" value="K" label="Kelvin"/>
+            </select>
+        </datalist>
+
+        <datalist id="speed">
+            <select>
+                <option on-tap="setVal" value="cm/sec" label="Cm/sec"/>
+                <option on-tap="setVal" value="m/sec" label="m/sec"/>
+                <option on-tap="setVal" value="ft/sec" label="ft/sec"/>
+                <option on-tap="setVal" value="Knts" label="Knots"/>
+            </select>
+        </datalist>
+
+    </template>
+
+    <script>
+        Polymer({
+
+            is: 'unit-sel',
+
+            properties: {
+                set: {
+                    type: String,
+                    notify: true,
+                    value: 'all'
+                    //Either `metirc`, `imperial`, or `all`
+                },
+                value: {
+                    type: String,
+                    notify: true,
+                    reflectToAttribute: true
+                }
+            },
+
+            attached: function () {
+                var $$ = Polymer.dom(this.root);
+                var egg = $$.querySelector('#unitselect');
+                egg.classList.remove('form-control');
+            },
+
+        });
+    </script>
+</dom-module>

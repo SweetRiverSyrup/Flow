@@ -1,0 +1,62 @@
+:host {
+  display: block;
+  background-color: inherit;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  --iron-icon-height: 20px;
+  --iron-icon-width: 20px;
+  height: 17.5px;
+  color: #000 !important;
+}
+:host #unitselect {
+  display: block;
+  background-color: inherit;
+  border: 0;
+  margin: 0;
+  width: min-content;
+  width: 40px;
+  height: min-content;
+  height: 20px;
+}
+:host #unitselect:hover,
+:host #unitselect:focus {
+  outline: none;
+}
+:host .addon {
+  display: inline-flex;
+  margin: 0;
+}
+:host([pressed]) datalist#metric {
+  display: block;
+  position: absolute;
+  top: 0px;
+}
+:host([pressed]) datalist#metric .showDatalist {
+  font-family: sans-serif;
+  position: fixed;
+  border: 0.2px solid #bababa;
+  padding: 3px;
+  padding-left: 5px;
+  margin-top: 40px;
+  width: 60px;
+  height: max-content;
+  z-index: 10000;
+  background: white;
+  color: #000 !important;
+  text-align: left;
+}
+:host([pressed]) datalist#metric .showDatalist option {
+  font-weight: bold;
+  color: #000 !important;
+}
+:host([pressed]) datalist#metric .showDatalist option:hover {
+  background: #bababa;
+  color: #000 !important;
+}
+:host([pressed]) :host([set=metric]) datalist#metric {
+  display: block;
+  position: relative;
+  top: 0px;
+}

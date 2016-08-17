@@ -1,0 +1,1125 @@
+<html>
+    <head>
+        <title><%=title%></title>
+        <script src="/javascript/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+        <script src="/javascript/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container panel panel-default">
+            <form action="/config" method="post" class="panel-body form">
+                <div class="form-group">
+                    <label>Select the River which you will be working at:</label>
+                    <input type="text" list="rivers" name="selectRiver" id="selectRiver" class="form-control"/>
+                </div>
+                <div class="form-group hidden">
+                    <label>Select the Location at the River which you will be working at:</label>
+                    <input list="" name="selectRiverLocation" id="selectRiverLocation" class="form-control"/>
+                </div>
+                <div class="form-group hidden">
+                    <label>Select the Site From Location <span id="location"></span> at the River which you will be working at:</label>
+                    <input list="" name="selectRiverLocationSite" id="selectRiverLocationSite" class="form-control"/>
+                </div>
+
+                HELP
+
+                <datalist id="rivers">
+                    <option value="ARiver"/>
+
+                    <option value="AARiver"/>
+
+                    <option value="AAARiver"/>
+
+                </datalist>
+
+                <datalist id="aRiverLocations">
+                    <option value="a"/>
+                    <option value="b"/>
+                    <option value="c"/>
+                    <option value="d"/>
+                    <option value="e"/>
+                    <option value="f"/>
+                    <option value="g"/>
+                    <option value="h"/>
+                    <option value="i"/>
+                    <option value="j"/>
+                    <option value="k"/>
+                    <option value="l"/>
+                </datalist>
+                    <datalist id="aRiverLocationASites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+                    <datalist id="aRiverLocationBSites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+                    <datalist id="aRiverLocationCSites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+                    <datalist id="aRiverLocationDSites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+                    <datalist id="aRiverLocationESites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+                    <datalist id="aRiverLocationFSites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+                    <datalist id="aRiverLocationGSites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+                    <datalist id="aRiverLocationHSites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+                    <datalist id="aRiverLocationISites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+                    <datalist id="aRiverLocationJSites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+                    <datalist id="aRiverLocationKSites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+                    <datalist id="aRiverLocationLSites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+
+
+                <datalist id="aaRiverLocations">
+                    <option value="a"/>
+                    <option value="b"/>
+                    <option value="c"/>
+                    <option value="d"/>
+                    <option value="e"/>
+                    <option value="f"/>
+                    <option value="g"/>
+                    <option value="h"/>
+                    <option value="i"/>
+                    <option value="j"/>
+                    <option value="k"/>
+                    <option value="l"/>
+                </datalist>
+                    <datalist id="aaRiverLocationASites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+                    <datalist id="aaRiverLocationBSites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+                    <datalist id="aaRiverLocationCSites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+                    <datalist id="aaRiverLocationDSites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+                    <datalist id="aaRiverLocationESites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+                    <datalist id="aaRiverLocationFSites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+                    <datalist id="aaRiverLocationGSites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+                    <datalist id="aaRiverLocationHSites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+                    <datalist id="aaRiverLocationISites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+                    <datalist id="aaRiverLocationJSites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+                    <datalist id="aaRiverLocationKSites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+                    <datalist id="aaRiverLocationLSites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+
+
+                <datalist id="aaaRiverLocations">
+                    <option value="a"/>
+                    <option value="b"/>
+                    <option value="c"/>
+                    <option value="d"/>
+                    <option value="e"/>
+                    <option value="f"/>
+                    <option value="g"/>
+                    <option value="h"/>
+                    <option value="i"/>
+                    <option value="j"/>
+                    <option value="k"/>
+                    <option value="l"/>
+                </datalist>
+                    <datalist id="aaaRiverLocationASites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+                    <datalist id="aaaRiverLocationBSites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+                    <datalist id="aaaRiverLocationCSites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+                    <datalist id="aaaRiverLocationDSites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+                    <datalist id="aaaRiverLocationESites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+                    <datalist id="aaaRiverLocationFSites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+                    <datalist id="aaaRiverLocationGSites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+                    <datalist id="aaaRiverLocationHSites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+                    <datalist id="aaaRiverLocationISites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+                    <datalist id="aaaRiverLocationJSites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+                    <datalist id="aaaRiverLocationKSites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+                    <datalist id="aaaRiverLocationLSites">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                        <option value="5"/>
+                        <option value="6"/>
+                        <option value="7"/>
+                        <option value="8"/>
+                        <option value="9"/>
+                        <option value="10"/>
+                        <option value="11"/>
+                        <option value="l2"/>
+                        <option value="l3"/>
+                        <option value="l4"/>
+                        <option value="l5"/>
+                        <option value="l6"/>
+                        <option value="l7"/>
+                        <option value="l8"/>
+                        <option value="l9"/>
+                        <option value="20"/>
+                        <option value="21"/>
+                        <option value="22"/>
+                        <option value="23"/>
+                        <option value="24"/>
+                    </datalist>
+
+<div id="output"></div>
+
+                <script>
+                    $(document).ready(function() {
+                        var river = $("#selectRiver");
+                        var riverLocation = $("#selectRiverLocation");
+                        var riverLocationSite = $("#selectRiverLocationSite");
+
+                        var locations = [
+                                "a",
+                                "b",
+                                "c",
+                                "d",
+                                "e",
+                                "f",
+                                "g",
+                                "h",
+                                "i",
+                                "j",
+                                "k",
+                                "l",
+                        ];
+                        var sites = [
+                            "1",
+                            "2",
+                            "3",
+                            "4",
+                            "5",
+                            "6",
+                            "7",
+                            "8",
+                            "9",
+                            "10",
+                            "11",
+                            "12",
+                            "13",
+                            "14",
+                            "15",
+                            "16",
+                            "17",
+                            "18",
+                            "19",
+                            "20",
+                            "21",
+                            "22",
+                            "23",
+                            "24",
+                        ];
+
+                        river.change(function(){
+
+                            if(river.val() === "ARiver"){
+                                riverLocation.attr("list", "aRiverLocations");
+                                riverLocation.parent().removeClass("hidden");
+                                riverLocation.change(function(){
+                                    for(i = 0; i < 13; i++){
+                                        if(locations[i] == riverLocation.val()){
+                                            riverLocationSite.attr("list", "aRiverLocation" + locations[i].toUpperCase() +"Sites");
+                                            riverLocationSite.parent().removeClass("hidden");
+                                            $("#location").text(locations[i].toUpperCase());
+                                            riverLocationSite.change(function() {
+                                                $("#output").text("You are working at the " + river.val() + " within location " + riverLocation.val().toUpperCase() + " in site " + riverLocationSite.val());
+                                            });
+                                        }
+                                    }
+                                });
+                            }else if(river.val() == "AARiver"){
+                                riverLocation.attr("list", "aaRiverLocations");
+                                riverLocation.parent().removeClass("hidden");
+                                riverLocation.change(function(){
+                                    for(i = 0; i < 13; i++){
+                                        if(locations[i] == riverLocation.val()){
+                                            riverLocationSite.attr("list", "aaRiverLocation" + locations[i].toUpperCase() +"Sites");
+                                            riverLocationSite.parent().removeClass("hidden");
+                                            $("#location").text(locations[i].toUpperCase());
+                                            riverLocationSite.change(function() {
+                                                $("#output").text("You are working at the " + river.val() + " within location " + riverLocation.val().toUpperCase() + " in site " + riverLocationSite.val());
+                                            });
+                                        }
+                                    }
+                                });
+                            }else if(river.val() == "AAARiver"){
+                                riverLocation.attr("list", "aRiverLocations");
+                                riverLocation.parent().removeClass("hidden");
+                                riverLocation.change(function(){
+                                    for(i = 0; i < 13; i++){
+                                        if(locations[i] == riverLocation.val()){
+                                            riverLocationSite.attr("list", "aaaRiverLocation" + locations[i].toUpperCase() +"Sites");
+                                            riverLocationSite.parent().removeClass("hidden");
+                                            $("#location").text(locations[i].toUpperCase());
+                                            riverLocationSite.change(function() {
+                                                $("#output").text("You are working at the " + river.val() + " within location " + riverLocation.val().toUpperCase() + " in site " + riverLocationSite.val());
+                                            });
+                                        }
+                                    }
+                                });
+                            }
+
+                        });
+                    });
+                </script>
+
+                <input type="submit" name="" class="btn btn-default" value="submit"/><br />
+            </form>
+        </div>
+    </body>
+</html>

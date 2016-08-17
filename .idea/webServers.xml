@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="a750e3e2-4a16-4f3f-90c1-8a561307546f" name="130.199.94.81" url="http://130.199.94.81">
+        <fileTransfer host="130.199.94.81" port="21" rootFolder="/home/pi/serve/Flow" password="dfd8dfcbdfd9dfdadfc8dfcfdfd8dfd8dfd3" username="pi">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,71 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<!--
+`new-element`
+Just trying to understand polymer
+
+@demo demo/index.html 
+-->
+
+<dom-module id="flag-center">
+  <template>
+    <style>
+      :host {
+		display: block;
+		padding: 10px;
+        text-align: left;
+        padding-top: 0px;
+		margin: 5px;
+		border-radius: 5px;
+		/*box-shadow: 0px 0px 10px 0.01px #c6c6c6;*/
+		--iron-icon-width: 10px;
+		--iron-icon-height: 10px;
+		
+		--flag-danger: {
+			color:#1E0008;
+			background-color:#F9818A;
+			padding: 15px;
+			margin: 7.5px;
+			border-radius: 3.74px;
+        };
+		--flag-info: {
+			color:#001935;
+			background-color:#86C0FF;
+			padding: 15px;
+			margin: 7.5px;
+			border-radius: 3.74px;
+        };
+		--flag-warn: {
+			color:#1E1A00;
+			background-color:#FFF699;
+			padding: 15px;
+			margin: 7.5px;
+			border-radius: 3.74px;
+        };
+		--flag-success: {
+			color: #003526;
+			background-color:#A8FF9B; /*A4FF96, 9CF28E*/
+			padding: 15px;
+			margin: 7.5px;
+			border-radius: 3.74px;
+        };
+		}
+    </style>
+        <h3>[[head]]</h3>
+		<content></content>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'flag-center',
+	  properties: {
+          head: {
+              type: String,
+              value: "Notification Center",
+              notify: true,
+              reflectToAttribute: true
+          }
+      }
+	  });
+  </script>
+</dom-module>

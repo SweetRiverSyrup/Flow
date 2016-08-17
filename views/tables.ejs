@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tables</title>
+    <script src="../public/javascript/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <script src="../public/javascript/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <style>
+        td, th {
+            border: solid black 1px;
+            min-width: 50px;
+        }
+        .better-table {
+            overflow-x: scroll;
+        }
+        #content {
+            margin: 15px;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid" id="content">
+<h1>MySql Table Columns Info</h1>
+<% tables.forEach(function(table) { %>
+<h3><%= table[0].table_name %></h3>
+<div class="better-table">
+<table>
+    <tr>
+    <%  table.forEach(function(column) { %>
+        <th id=<%- column.column_name %>><%= column.column_name %></th>
+    <%  }); %>
+    </tr>
+    <tr>
+        <% table.forEach(function(column) {
+            delete column.table_name;
+            delete column.column_name;
+            for (var key in column) {
+                if (!column.hasOwnProperty(key)) continue;
+                if (!column[key]) {
+                    delete column[key];
+                }
+            }
+        %>
+            <td><%- JSON.stringify(column) %></td>
+        <% }); %>
+    </tr>
+</table>
+</div>
+<%}); %>
+</div>
+</body>
+</html>

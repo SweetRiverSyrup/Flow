@@ -1,0 +1,36 @@
+.container, .container-fluid {
+  .pseudo-table {
+    padding: 2%;
+    padding-left: 20px;
+    padding-right: 20px;
+    //border-left: 0.099px solid #ddd;
+    //border-right: 0.099px solid #ddd;
+    border: .25px solid #ddd;
+    .row {
+      padding-top: 7px;
+      margin-top: 1px;
+      margin-bottom: 1px;
+      padding-bottom: 8px;
+      border-bottom: 0.25px solid #ddd;
+      &:nth-child(1) {
+        padding: 1.6px;
+        //border-top: .25px solid #ddd;
+        padding-top: 5px;
+        font-weight: bold;
+      }
+      &:nth-last-child(1) {
+        border-bottom: 0;
+        //border-bottom: 0.25px solid #ddd;
+      }
+      div {
+        &:nth-child(1) {
+          font-weight: bold;
+        }
+      }
+      .bold {
+        font-weight: 700;
+        font-size: 1.05em;
+      }
+    }
+  }
+}
