@@ -13,7 +13,8 @@ var express = require('express'),
     flag = require('./flag'),
 
     routes = require('./routes/index'),
-    getById = require('./routes/getById'),
+    form = require('./routes/form-workaround'),
+    //getById = require('./routes/getById'),
 
     app = express();
 
@@ -48,7 +49,7 @@ app.use(function(req,res,next){
 
 //Create connection variable for use
 var conn = mysql.createConnection({
-    host: '130.199.94.196', //the ip of the computer running the database, should be localhost when not in testing mode
+    host: 'localhost', //the ip of the computer running the database, should be localhost when not in testing mode
     user: 'root', //DO NOT CHANGE THIS IN MARIA
     password: 'alpine', //DO NOT CHANGE THIS IN MARIA
     database: 'pi' //DO NOT CHANGE THIS IN MARIA
@@ -77,7 +78,8 @@ app.post('/fooorm', function (req, res, next) {
 });
 
 app.use('/', routes);
-app.use('/data/:id', getById);
+app.use('/form', form);
+//app.use('/data/:id', getById);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

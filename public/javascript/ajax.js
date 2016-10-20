@@ -13,7 +13,8 @@ $(document).ready(function() {
         $("input, textarea, unit-sel").not("#unitselect, input[type=radio]:not(:checked), :button").each(function () {
             var name = $(this).attr('name');
             var val;
-            if (typeof $(this).attr('name') != 'undefined' && $(this).attr('name') != '') {
+            //if (typeof $(this).attr('name') != 'undefined' && $(this).attr('name') != '') {
+            if(1==1){
                 // if ($(this).attr('type') === 'radio' && $(this).attr('id') !== 'netMethodTypeOptionOther') {
                 //     $(this).val($(this).attr('id'));
                 // }
@@ -40,14 +41,14 @@ $(document).ready(function() {
 
         $.ajax({
             type: 'POST',
-            url: '/fooorm',
+            url: '/form/workaround',
             data: data,
             dataType: 'json'
         }).done(function(data) {
             $("flag-danger, flag-info, flag-warn, flag-win, flag-ewarn").each(function() {
                 this.remove();
             });
-            console.log(data.flag);
+            console.log(data);
             if (data.flag !== null) {
                 flag(data.flag);
             } else {
@@ -56,6 +57,3 @@ $(document).ready(function() {
         });
     });
 });
-
-
-
