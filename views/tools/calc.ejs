@@ -1,0 +1,146 @@
+<div class="modal fade" tabindex="-1" role="dialog" id="calcModel" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                <h4 class="modal-title">Calculator</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid widget">
+                    <div>
+                        <iron-autogrow-textarea readonly id="calcinput"></iron-autogrow-textarea>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-1">
+                            <button id="divide" class="ui-widget ui-button ui-corners-all">&nbsp;/&nbsp;</button>
+                        </div>
+                        <div class="col-xs-1">
+                            <button id="multip" class="ui-widget ui-button ui-corners-all">&nbsp;*&nbsp;</button>
+                        </div>
+                        <div class="col-xs-1">
+                            <button id="minus" class="ui-widget ui-button ui-corners-all">&nbsp;-&nbsp;</button>
+                        </div>
+                        <div class="col-xs-1">
+                            <button id="plus" class="ui-widget ui-button ui-corners-all">&nbsp;+&nbsp;</button>
+                        </div>
+                        <div class="col-xs-1">
+                            <button id="cls" class="ui-widget ui-button ui-corners-all">Cls</button>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-1">
+                            <button id="parnth" class="ui-widget ui-button ui-corners-all">&nbsp;&#40;</button>
+                        </div>
+                        <div class="col-xs-1">
+                            <button id="seven" class="ui-widget ui-button ui-corners-all">7</button>
+                        </div>
+                        <div class="col-xs-1">
+                            <button id="eight" class="ui-widget ui-button ui-corners-all">8</button>
+                        </div>
+                        <div class="col-xs-1">
+                            <button id="nine" class="ui-widget ui-button ui-corners-all">9</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-1">
+                            <button id="exp" class="ui-widget ui-button ui-corners-all">**</button>
+                        </div>
+                        <div class="col-xs-1">
+                            <button id="four" class="ui-widget ui-button ui-corners-all">4</button>
+                        </div>
+                        <div class="col-xs-1">
+                            <button id="five" class="ui-widget ui-button ui-corners-all">5</button>
+                        </div>
+                        <div class="col-xs-1">
+                            <button id="six" class="ui-widget ui-button ui-corners-all">6</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-1">
+                            <button id="zero" class="ui-widget ui-button ui-corners-all">0</button>
+                        </div>
+                        <div class="col-xs-1">
+                            <button id="one" class="ui-widget ui-button ui-corners-all">1</button>
+                        </div>
+                        <div class="col-xs-1">
+                            <button id="two" class="ui-widget ui-button ui-corners-all">2</button>
+                        </div>
+                        <div class="col-xs-1">
+                            <button id="three" class="ui-widget ui-button ui-corners-all">3</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <button id="calc" class="ui-widget ui-button ui-corners-all ">
+                                Enter
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="displaySpecificGroup" name="displaySpecificGroup"
+                        form="setGroup">Continue to Lab
+                </button>
+            </div>
+
+            <script>
+                $(function() {
+                    $(".widget button").button();
+                    $("#calc").css("width", '205px' ).click(function(){
+                        var calculation = $('#calcinput').text().toString();
+                            window.alert(eval(calculation));
+
+                    });
+                    $("#cls").click(function(){
+                        $("#calcinput").val('');
+                    });
+                    var one = $("#one"),
+                            two = $("#two"),
+                            three = $("#three"),
+                            four = $("#four"),
+                            five = $("#five"),
+                            six = $("#six"),
+                            seven = $("#seven"),
+                            eight = $("#eight"),
+                            nine = $("#nine"),
+                            plus = $("#plus"),
+                            zero = $("#zero"),
+                            minus = $("#minus"),
+                            divide = $("#divide"),
+                            multip = $("#multip"),
+                            exp = $("#exp"),
+                            paranth = $("#paranth");
+
+                    one
+                            .add(two)
+                            .add(three)
+                            .add(four)
+                            .add(five)
+                            .add(six)
+                            .add(seven)
+                            .add(eight)
+                            .add(nine)
+                            .add(plus)
+                            .add(minus)
+                            .add(divide)
+                            .add(multip)
+                            .add(exp)
+                            .add(paranth)
+                            .click(function(){
+                                var whatwas = $("#calcinput").val();
+                                var whatiam = $(this).text();
+                                var whatis = `${whatwas}${whatiam}`;
+                                $("#calcinput").val(whatis);
+                            });
+                    });
+
+
+            </script>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -s-c -->

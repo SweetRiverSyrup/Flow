@@ -1,0 +1,1801 @@
+<!doctype html>
+<% include head %>
+<% include top %>
+<% include tools/prompt %>
+<% include tools/setting_panel %>
+<form id="lab" class="form container panel" name="mainForm">
+
+    <div id="g1REF" class="ref"></div>
+    <section class="container g1" id="g1">
+        <h1>Physical Data</h1>
+        <!-- Change ID nomenclature from Lexical to Ordinal? gunna do it because it makes it easier -->
+        <div id="g1FS1REF" class="ref"></div>
+        <fieldset id="g1FS1" class="g1 FS1 container">
+            <h2>Tide Measurement</h2>
+
+
+            <div class="container">
+                <label for="totalTideChange">
+                Total Tide Change:
+                </label>
+                <div class="input-group">
+
+                    <input type="text" name="totalTideChange" id="totalTideChange"/>
+                    <div class="input-group-addon">
+                      <select name="" id="">
+                        <option value="km">kilometers</option>
+                        <option value="cm">centimeters</option>
+                        <option value="m">meters</option>
+                        <option value="ft">feet</option>
+                        <option value="ft">inches</option>
+                      </select>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="container">
+              <div class="form-group">
+                <label>Current Direction:</label>
+                <select name="currentDirection" id="currentDirection">
+                  <option value="n">north</option>
+                  <option value="s">south</option>
+                  <option value="e">east</option>
+                  <option value="w">west</option>
+                </select>
+              </div>
+            </div>
+              <hr/>
+            <div class="container">
+              <label>Current Speed:</label>
+              <div class="input-group">
+                <input type="text" id="currentSpeed" name="currentSpeed" />
+                <div class="input-group-addon">
+                  cm
+                </div>
+              </div>
+            </div>
+            <hr/>
+            <div class="container table">
+              <h2>Air Tempurture</h2>
+              <label>Time:
+                <input required="" id="tbl3R1Time" class="form-control" name="time1" type="text" placeholder="">
+              </label>
+
+              <label>Degrees Farenheight
+                <div class="input-group">
+                  <input required="" id="tbl3R1F" class="form-control" name="tempF1" type="text" min="-20" max="999" placeholder="">
+                  <div class="input-group-addon">°F</div>
+                </div>
+              </label>
+
+              <label>Degrees Celcius
+                <div class="input-group">
+                    <input required="" id="tbl3R1C" class="form-control" name="tempC1" type="text" min="-20" max="999" placeholder="">
+                    <div class="input-group-addon">°C</div>
+                </div>
+              </label>
+
+            </div>
+
+            <div class="container">
+              <div id="g1AtmosphericMeasurementFieldsetCloudCoverageEstimate" class=""><!-- container possibly -->
+                  <h3>Estimate Cloud Coverage</h3>
+                  <div class="radio">
+                      <label>
+                          <input type="radio" name="cloudCover" placeholder="" id="clear" value="clear" class="">
+                          Clear (0-25%)
+                      </label>
+                  </div>
+                  <div class="radio">
+                      <label>
+                          <input type="radio" name="cloudCover" placeholder="" id="partly" value="partly" class="">
+                          Partly Cloudy (25-50%)
+                      </label>
+                  </div>
+                  <div class="radio">
+                      <label>
+                          <input type="radio" name="cloudCover" placeholder="" id="mostly" value="mostly" class="">
+                          Mostly Cloudy (50-75%)
+                      </label>
+                  </div>
+                  <div class="radio">
+                      <label>
+                          <input type="radio" name="cloudCover" placeholder="" id="overcast" value="overcast" class="">
+                          Overcast (75-100%)
+                      </label>
+                  </div>
+              </div>
+            </div>
+
+
+
+            <div class="container">
+              <div id="g1AtmosphericMeasurementFieldsetWindData" class="container">
+
+                  <div class="form-group">
+                      <label>Wind Direction</label>
+                      <input required="" id="windDirection" name="windDirection" class="line form-control"
+                             list="cardinalDirections" placeholder="">
+                  </div>
+                  <div class="form-group">
+                      <label>Wind Speed (mph)</label>
+                      <input required="" id="windSpeedMph" class="line form-control" name="windSpeedMph" type="text"
+                             min="0" max="99" placeholder="">
+                  </div>
+                  <div class="form-group">
+                      <label>Wind Speed (knots)</label>
+                      <input required="" id="windSpeedKnots" class="line form-control" name="windSpeedKnots" type="text"
+                             min="0" max="99" placeholder="">
+                  </div>
+                  <div class="form-group">
+                      <label>Beaufort Description</label>
+                      <input required="" id="windBeaufortScale" class="line form-control" name="windBeaufortScale"
+                             list="beaufortScaleDescriptions" placeholder="">
+                  </div>
+              </div>
+            </div>
+
+            <div class="container">
+              <div class="form-group">
+                <label></label>
+
+              </div>
+            </div>
+
+            <div class="container">
+              <div class="form-group">
+                <label></label>
+
+              </div>
+            </div>
+
+            <div class="container">
+              <div class="form-group">
+                <label></label>
+
+              </div>
+            </div>
+
+            <div class="container">
+              <div class="form-group">
+                <label></label>
+
+              </div>
+            </div>
+
+            <div class="container">
+              <div class="form-group">
+                <label></label>
+
+              </div>
+            </div>
+
+            <div class="container">
+              <div class="form-group">
+                <label></label>
+
+              </div>
+            </div>
+
+            <div class="container">
+              <div class="form-group">
+                <label></label>
+
+              </div>
+            </div>
+
+        </fieldset>
+
+    </section>
+
+    <div id="g2REF" class="ref"></div>
+    <section class="container" id="g2">
+        <h1>Site Description</h1>
+        <div id="g2FS1REF" class="ref"></div>
+        <fieldset id="g2FS1" class="container">
+            <h2>Physical Description</h2>
+
+
+            <div class="container">
+
+                <label>Check all that apply:</label>
+                <input type="hidden" value="" id="g2CheckboxArray" name="g2CheckboxArray" class="form-control">
+                <div id="g2CheckboxTable" class="row">
+                    <div class="col-md-2">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="isSandy" name="isSandy" value="sandy" class="">
+                                Sandy
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="isBulkhead" name="isBulkhead" value="bulkhead" class="">
+                                Bulkhead
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="isVegetated" name="isVegetated" value="vegetated" class="">
+                                Vegetated
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="g2CheckboxTable" class="row">
+                    <div class="col-md-2">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="isRoadEnding" name="isRoadEnding" value="roadEnding"
+                                       class="">
+                                Road Ending
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="isRocky" name="isRocky" value="rocky" class="">
+                                Rocky
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="isPipeEnteringRiverBay" name="isPipeEnteringRiverBay"
+                                       value="pipeEnteringRiverBay" class="">
+                                Pipe Entering river/bay
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="g2CheckboxTable" class="row">
+                    <div class="col-md-2">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="isGentleBeachSlope" name="isGentleBeachSlope"
+                                       value="gentleBeachSlope" class="">
+                                Gentle Beach Slope
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="isSteepSlope" name="isSteepSlope" value="steepSlope"
+                                       class="">
+                                Steep Slope
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="isPier" name="isPier" value="pier" class="">
+                                Pier
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="g2CheckboxTable" class="row">
+                    <div class="col-md-2">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="isRiprap" name="isRiprap" value="riprap" class="">
+                                Riprap
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="isGarbage" name="isGarbage" value="garbage" class="">
+                                Garbage
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="checkbox show">
+                            <label>
+                                <input type="checkbox" id="g2CheckboxTableOptOther" name="g2CheckboxTableOptOther" value="" class="">
+                                Other
+                                <script>
+                                    $("#g2CheckboxTableOptOther").click(function () {
+                                        $("#g2CheckboxTableOptOtherField").toggleClass("hidden");
+                                        $("#g2CheckboxTableOptOtherFieldArea").change(function () {
+                                            $("#g2CheckboxTableOptOther").val($("#g2CheckboxTableOptOtherFieldArea").val());
+                                        });
+                                    });
+                                    var array = [];
+                                    $("#g2CheckboxTable input[type=checkbox]").click(function () {
+                                        if ($(this).is(":checked")) {
+
+                                            //if(!$.inArray($(this).val(), array)){
+                                            if (array.indexOf($(this).val()) == -1) {
+
+                                                array.push( $(this).val() );
+                                                $("#g2CheckboxArray").val(array);
+                                            }
+
+                                        } else {
+                                            if (array.indexOf($(this).val()) > -1) {
+                                                //alert("it is in the array");
+                                                var index = array.indexOf($(this).val());
+                                                var garbage = array.splice(index, 1);
+                                                $("#g2CheckboxArray").val(array);
+                                            }
+                                        }
+                                        for (i = 0; i < array.length; i++) {
+                                            if (array[i] == '' || array[i] == null) {
+                                                var garbage = array.splice(i);
+                                            }
+                                        }
+                                    });
+                                    $("#g2CheckboxTableOptOther").click(function () {
+                                        $("#g2CheckboxTableOptOtherFieldArea").blur(function () {
+                                            $("#g2CheckboxTableOptOther").click();
+                                            $("#g2CheckboxTableOptOther").click();
+
+                                        });
+
+                                    });
+                                </script>
+                            </label>
+                        </div>
+                    </div>
+                    <div id="g2CheckboxTableOptOtherField" class="hidden"><textarea
+                                id="g2CheckboxTableOptOtherFieldArea" class="form-control" name="g2CheckboxTableOptOtherFieldArea"
+                                placeholder="Your text here..."></textarea></div>
+                </div>
+
+            </div>
+
+            <div class="container">
+                <label>The river/bay is mostly:</label>
+                <div class="row">
+                    <div class="col-md-1">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="riverBayIs" id="mostlySand" value="sand" class="">
+                                Sand
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="riverBayIs" id="mostlyMud" value="mud" class="">
+                                Mud
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="riverBayIs" id="mostlyRock" value="rock" class="">
+                                Rock
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="riverBayIs" id="mostlyWeeds" value="weeds" class="">
+                                Weeds
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="riverBayIs" id="mostlyUD" value="indeterminable" class="">
+                                Unable to be determined
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <label>What percent of the <em>bottom</em> of the river is vegetation</label>
+                <div class="row">
+                    <div class="col-md-1">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="vegBottomPercent" id="" value="0to25" class="">
+                                0-25%
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="vegBottomPercent" id="" value="25to50" class="">
+                                25-50%
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="vegBottomPercent" id="" value="50to75" class="">
+                                50-75%
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="vegBottomPercent" id="" value="75to100" class="">
+                                75-100%
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <label>What percent of the <em>surface</em> of the river is vegetation</label>
+                <div class="row">
+                    <div class="col-md-1">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="vegSurfacePercent" id="" value="0to25" class="">
+                                0-25%
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="vegSurfacePercent" id="" value="25to50" class="">
+                                25-50%
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="vegSurfacePercent" id="" value="50to75" class="">
+                                50-75%
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="vegSurfacePercent" id="" value="75to100" class="">
+                                75-100%
+                            </label>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </fieldset>
+
+        <div id="g2FS3REF" class="ref"></div>
+        <fieldset id="g2FS3" class="container">
+            <h2>Sediment Samples from the shore and bottom of the river</h2>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div id="" class="form-group">
+                            <label>Total length of sediment core</label>
+                            <div class="input-group">
+                                <input type="text" min="0" max="520" name="sedimentSampleLength" placeholder="" id="sedimentSampleLength"
+                                       class="form-control">
+                                <div class="input-group-addon">
+                                    units
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <div id="" class="form-group">
+                            <label>Total length of <em><u>oxidized</u></em> layer of core(if present)</label>
+                            <div class="input-group">
+                                <input type="text" min="0" max="520" name="sedimentSampleOxicLength" placeholder=""
+                                       id="sedimentSampleOxicLength" class="form-control">
+                                <div class="input-group-addon">
+                                    units
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <div id="" class="form-group">
+                            <label>Total length of <em><u>anoxic</u></em> layer of core(if present)</label>
+                            <div class="input-group">
+                                <input type="text" min="0" max="520" name="sedimentSampleAnoxicLength" placeholder=""
+                                       id="sedimentSampleAnoxicLength" class="form-control">
+                                <div class="input-group-addon">
+                                    units
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-5">
+
+
+                        <div class="container-fluid">
+                            <div class="container-fluid pseudo-table">
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <div class="visible-md-block">
+                                            Characterisitc
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            Absent
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            Rare
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            Common
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            Abundant
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            Additional Comments
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            Clay
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="r1" id="clayAbsent" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Absent
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="r1" id="clayRare" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Rare
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="r1" id="clayCommon" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Common
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="r1" id="clayAbundant" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Abundant
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            <textarea id="clayComments" name="clayComments"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            <text class="">Mud</text>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="r2" id="mudAbsent" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Absent
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="r2" id="mudRare" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Rare
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="r2" id="mudCommon" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Common
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="r2" id="mudAbundant" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Abundant
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            <textarea id="mudComments" name="mudComments"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            <text class="">Sand</text>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="r3" id="sandAbsent" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Absent
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label><input type="radio" name="r3" id="sandRare" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Rare
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label><input type="radio" name="r3" id="sandCommon" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Common
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="r3" id="sandAbundant" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Abundant
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            <textarea id="sandComments" name="sandComments"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            <text class="">Gravel</text>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label><input type="radio" name="r4" id="gravelAbsent" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Absent
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label><input type="radio" name="r4" id="gravelRare" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Rare
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label><input type="radio" name="r4" id="gravelCommon" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Common
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label><input type="radio" name="r4" id="gravelAbundant" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Abundant
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            <textarea id="gravelComments" name="gravelComments"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <text class="">Pebbles</text>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label><input type="radio" name="r5" id="pebblesAbsent" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Absent
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label><input type="radio" name="r5" id="pebblesRare" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Rare
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label><input type="radio" name="r5" id="pebblesCommon" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Common
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label><input type="radio" name="r5" id="pebblesAbundant" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Abundant
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <textarea id="pebblesComments" name="pebblesComments"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            <text class="">Clam Shell</text>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label><input type="radio" name="r6" id="bivalveAbsent" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Absent
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label><input type="radio" name="r6" id="bivalveRare" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Rare
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label><input type="radio" name="r6" id="bivalveCommon" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">Common</div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label><input type="radio" name="r6" id="bivalveAbundant" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Common
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <textarea id="bivalveComments" name="bivalveComments"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            <text class="">Molusk Shell</text>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label><input type="radio" name="r7" id="snailAbsent" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Absent
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label><input type="radio" name="r7" id="snailRare" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Rare
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label><input type="radio" name="r7" id="snailCommon" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Common
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label><input type="radio" name="r7" id="snailAbundant" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Abundant
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <textarea id="snailComments" name="snailComments"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            <text class="">Macroinverts</text>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label><input type="radio" name="r8" id="macroinvertsAbsent" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Absent
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label><input type="radio" name="r8" id="macroinvertsRare" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Rare
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label><input type="radio" name="r8" id="macroinvertsCommon" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Common
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label><input type="radio" name="r8" id="macroinvertsAbundant" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Abundant
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <textarea id="macroinvertsComments" name="macroinvertsComments"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <text class="">Coal</text>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label><input type="radio" name="r9" id="coalAbsent" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Absent
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label><input type="radio" name="r9" id="coalRare" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Rare
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label><input type="radio" name="r9" id="coalCommon" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Common
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label><input type="radio" name="r9" id="coalAbundant" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Abundant
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <textarea id="coalComments" name="coalComments"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            <text class="">Plant Material</text>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label class="control-label">
+                                                <input type="radio" name="r10" id="plantAbsent" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Absent
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label class="control-label">
+                                                <input type="radio" name="r10" id="plantRare" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Rare
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="r10" id="plantCommon" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Common
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="r10" id="plantAbundant" class="">
+                                                <div class="visible-md-inline visible-sm-inline visible-xs-inline">
+                                                    Abundant
+                                                </div>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            <textarea id="plantComments" name="plantComments"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- Add bootstrap grid-based table here for mobile-friendly version of the above table -->
+            </div>
+        </fieldset>
+
+    </section>
+
+    <div id="g3REF" class="ref"></div>
+    <section class="container" id="g3">
+        <h1 class="">Biological Sampling</h1>
+
+        <div id="g3FS1REF" class="ref"></div>
+        <fieldset id="g3FS1" class="container">
+            <h2>Aquatic Biology Survey</h2>
+            <div class="well container">
+                <div class="container-fluid">
+                    <!-- Possibly include a few extra rows here for mesh size and net width -->
+                    <div class="row">
+                        <div class="col-md-1">
+                            <b>Collection Method</b>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <label>Choose the type of net you are using</label>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="netType" id="siene" class=""
+                                                   value="siene" checked="">
+                                            Siene
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="netType" id="dip" class="" value="dip">
+                                            Dip
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="netType" id="crab" class=""
+                                                   value="crab">
+                                            Crab
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="netType" id="netMethodTypeOptionOther" class="">
+                                            Other
+                                        </label>
+                                    </div>
+                                </div>
+                                <div id="otherDiv" class="form-group hidden">
+                                    <input type="text" class="form-control-lean form-control"
+                                           id="netMethodTypeOptionOtherField" name="netMethodTypeOptionOtherField" placeholder="Other...">
+                                </div>
+                                <script>
+                                    $("#netMethodTypeOptionOther").click(function () {
+                                        $("#otherDiv").removeClass("hidden");
+                                    });
+                                    $("#siene, #dip, #crab").click(function () {
+                                        $("#otherDiv").addClass("hidden");
+                                    });
+                                    $(document).ready(function () {
+                                        $('#netMethodTypeOptionOtherField').keyup(function () {
+                                            $('#netMethodTypeOptionOther').val($(this).val());
+                                        });
+                                    });
+                                    //Radio click event definition
+                                    $('input[type=radio], [name=radio]').on('radio', function () {
+                                        if ($(this).attr('id') == "netMethodTypeDip") {
+                                            $('#netLength, #netWidth, #netMeshSize').attr('readonly', 'true');
+                                            $('#netLength, #netWidth, #netMeshSize').removeAttr('required');
+                                        } else {
+                                            $('#netLength, #netWidth, #netMeshSize').removeAttr('readonly');
+                                            $('#netLength, #netWidth, #netMeshSize').attr('required', '');
+                                        }
+                                    });
+                                    //Trigger the event
+                                    $('input[type=radio]').click(function () {
+                                        $(this).trigger('radio')
+                                    });
+
+                                </script>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>Net Length</label>
+                                <div class="input-group">
+                                    <input type="text" min="0" max="999" id="netLength" class="form-control"
+                                           name="netLength" placeholder="">
+                                    <div class="input-group-addon">units</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>Net Width</label>
+                                <div class="input-group">
+                                    <input type="text" min="0" max="999" id="netWidth" class="form-control"
+                                           name="netWidth" placeholder="">
+                                    <div class="input-group-addon">units</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>Net Mesh Size</label>
+                                <div class="input-group">
+                                    <input type="text" min="0" max="999" id="netMeshSize" class="form-control"
+                                           name="netMeshSize" placeholder="">
+                                    <div class="input-group-addon">units</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                              <!-- the word "Length" was changed to "Distance" because "Length" is too general
+                              and could be refering to either a measure of distance or time -->
+                                <label>Distace of pull</label>
+                                <div class="input-group">
+                                    <!-- Possibly Time, or Distance -->
+                                    <input type="text" min="0" max="9999" id="pullLength" class="form-control"
+                                           name="pullLength" placeholder="">
+                                    <div class="input-group-addon">units</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div id="speciesTableContainer">
+                      <div id="speciesTable" class="pseudo-table">
+                          <!-- ~START Pseudo Table START~ -->
+                          <div class="row">
+                              <div class="col-lg-1 bold">
+                                  <!-- Empty Cell -->
+                                  <div class="visible-sm-block">
+                                      Row Number
+                                  </div>
+                              </div>
+                              <div class="col-lg-3 bold">
+                                  Organism Name
+                              </div>
+                              <div class="col-lg-2 bold">
+                                  Total number of organisms
+                              </div>
+                              <div class="col-lg-2 bold">
+                                  Size of largest organism
+                              </div>
+                          </div>
+
+                          <div class="row">
+                              <div class="col-lg-1">
+                                  Example
+                              </div>
+                              <div class="col-lg-3">
+                                  <input type="text" value="Blue Crab(2 males)" class="form-control" readonly="">
+                              </div>
+                              <div class="col-lg-2">
+                                  <input type="text" value="2" class="form-control" readonly="">
+                              </div>
+                              <div class="col-lg-2">
+
+                                  <div class="input-group">
+                                      <input type="" class="form-control" value="8.5" readonly="">
+                                      <div class="input-group-addon">
+                                          units
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="pseudo-table-rows">
+                            <div id="copy" class="row">
+                              <div class="col-lg-1">
+                                  1
+                              </div>
+                              <div class="col-lg-3">
+                                  <input type="text" id="Nom" name="Nom" class="form-control"
+                                         placeholder="Blue Crab(2 males)">
+                              </div>
+                              <div class="col-lg-2">
+                                  <input type="text" id="Total" name="Total" class="form-control" placeholder="2">
+                              </div>
+                              <div class="col-lg-2">
+                                  <div class="input-group">
+                                      <input type="number" id="SizeOfLargest" name="SizeOfLargest" class="form-control" placeholder="">
+                                      <div class="input-group-addon">
+                                          units
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          </div>
+                          <div class="col-lg-12">
+                              <div class="form-group">
+                                  <label>Comments</label>
+                                  <textarea id="" name="Comments" class="form-control"></textarea>
+                              </div>
+                          </div>
+
+                      </div>
+                    </div>
+                    <script>
+                      $(document).ready(function(){
+                        var copyable = $("#speciesTable.pseudo-table div.pseudo-table-rows #copy");
+                        for(i=2;i<16;i++){
+                          var newcpy = copyable.clone();
+                          newcpy.find("div.col-lg-1").html(i);
+                          newcpy.find("input").each(function(item){
+                            $(item).attr('name', `${i}` );
+                          });
+                          newcpy.appendTo(".pseudo-table-rows");
+                        }
+                      });
+                    </script>
+                    <!-- ~END Pseudo Table END~ -->
+                </div>
+            </div>
+
+            <div id="" class="form-group">
+                <label>Total Individuals Counted</label><input type="text" min="0" max="999" name="totalPopFromAllCollections" placeholder=""
+                                                               id="totalPopFromAllCollections" class="form-control">
+            </div>
+
+        </fieldset>
+
+        <div id="g3FS2REF" class="ref"></div>
+        <fieldset id="g3FS2" class="container">
+
+
+            <div id="" class="hidden">
+              <h2>Habitat Association Survey</h2>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>Species</th>
+                            <th>Count</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td><input type="text" id="" class="form-control" name="r1Species" placeholder=""></td>
+                            <!-- maybe a datalist? -->
+                            <td><input type="text" min="0" max="9999" id="" class="form-control" name="r1SCount" placeholder="">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+                            <td><input type="text" id="" class="form-control" name="r2Species" placeholder=""></td>
+                            <!-- maybe a datalist? -->
+                            <td><input type="text" min="0" max="9999" id="" class="form-control" name="r2Count" placeholder="">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>3</td>
+                            <td><input type="text" id="" class="form-control" name="r3Species" placeholder=""></td>
+                            <!-- maybe a datalist? -->
+                            <td><input type="text" min="0" max="9999" id="" class="form-control" name="r3Count" placeholder="">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>4</td>
+                            <td><input type="text" id="" class="form-control" name="r4Species" placeholder=""></td>
+                            <!-- maybe a datalist? -->
+                            <td><input type="text" min="0" max="9999" id="" class="form-control" name="r4Count" placeholder="">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>5</td>
+                            <td><input type="text" id="" class="form-control" name="r5Species" placeholder=""></td>
+                            <!-- maybe a datalist? -->
+                            <td><input type="text" min="0" max="9999" id="" class="form-control" name="r5Count" placeholder="">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>6</td>
+                            <td><input type="text" id="" class="form-control" name="r6Species" placeholder=""></td>
+                            <!-- maybe a datalist? -->
+                            <td><input type="text" min="0" max="9999" id="" class="form-control" name="r6Count" placeholder="">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>7</td>
+                            <td><input type="text" id="" class="form-control" name="r7Species" placeholder=""></td>
+                            <!-- maybe a datalist? -->
+                            <td><input type="text" min="0" max="9999" id="" class="form-control" name="r7Count" placeholder="">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>8</td>
+                            <td><input type="text" id="" class="form-control" name="r8Species" placeholder=""></td>
+                            <!-- maybe a datalist? -->
+                            <td><input type="text" min="0" max="9999" id="" class="form-control" name="r8Count" placeholder="">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>9</td>
+                            <td><input type="text" id="" class="form-control" name="r9Species" placeholder=""></td>
+                            <!-- maybe a datalist? -->
+                            <td><input type="text" min="0" max="9999" id="" class="form-control" name="r9Count" placeholder="">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>10</td>
+                            <td><input type="text" id="" class="form-control" name="r10Species" placeholder=""></td>
+                            <!-- maybe a datalist? -->
+                            <td><input type="text" min="0" max="9999" id="" class="form-control" name="r10Species" placeholder="">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>11</td>
+                            <td><input type="text" id="" class="form-control" name="r11Species" placeholder=""></td>
+                            <!-- maybe a datalist? -->
+                            <td><input type="text" min="0" max="9999" id="" class="form-control" name="r11Count" placeholder="">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>12</td>
+                            <td><input type="text" id="" class="form-control" name="r12Species" placeholder=""></td>
+                            <!-- maybe a datalist? -->
+                            <td><input type="text" min="0" max="9999" id="" class="form-control" name="r12Count" placeholder="">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Description of unknown organisms</td>
+                            <td colspan="3"><textarea name="unknownOrganismDetails" class="form-control" placeholder=""></textarea></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </fieldset>
+
+    </section>
+
+    <div id="g4REF" class="ref"></div>
+    <section class="container" id="g4">
+
+        <h1>Chemical Analysis</h1>
+        <h2>Water Temperature, Dissolved Oxygen, and pH</h2>
+
+        <div id="g4FS1REF" class="ref"></div>
+        <fieldset id="g4FS1" class="container">
+            <h3>Water Temperature</h3>
+
+            <div id="" class="table-responsive">
+                <table class="table-condensed">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Time</th>
+                        <th>°C</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td>Trial 1</td>
+                        <td><input type="text" id="" class="form-control" name="waterTempt1Time" placeholder=""></td>
+                        <td><input type="number" id="" class="form-control" name="waterTempt1Celcius" placeholder=""></td>
+
+                    </tr>
+
+                    <tr>
+                        <td>Trial 2</td>
+                        <td><input type="text" id="" class="form-control" name="waterTempt2Time" placeholder=""></td>
+                        <td><input type="number" id="" class="form-control" name="waterTempt2Celcius" placeholder=""></td>
+                    </tr>
+
+                    <tr>
+                        <td>Trial 3</td>
+                        <td><input type="text" id="" class="form-control" name="waterTempt3Time" placeholder=""></td>
+                        <td><input type="number" id="" class="form-control" name="waterTempt3Celcius" placeholder=""></td>
+                    </tr>
+
+                    <tr>
+                        <td>Average</td>
+                        <td><input type="text" id="" class="disabled form-control" name="" placeholder="" disabled="">
+                        </td>
+                        <td><input type="number" id="" class=" form-control" name="waterTempAvgC" placeholder="">
+                        </td>
+                    </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+        </fieldset>
+
+        <div id="g4FS2REF" class="ref"></div>
+        <fieldset id="g4FS2" class="container">
+            <h3>Dissolved Oxygen</h3>
+
+            <div id="" class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Time</th>
+                        <th>°C</th>
+                        <th>DO(mg/L or ppm)</th>
+                        <th>% Saturation</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td>Trial 1</td>
+                        <td><input type="number" id="" class="form-control" name="doT1Time" placeholder=""></td>
+
+                        <td>
+                            <div class="input-group">
+                                <input type="text" id="" class="form-control" name="doT1Temp" placeholder="">
+                                <div class="input-group-addon">°C</div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="input-group">
+                                <input type="text"class="form-control" name="doT1dO" placeholder="">
+                                <div class="input-group-addon">mg/L</div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="doT1Strtn" >
+                                <div class="input-group-addon">%</div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Trial 2</td>
+                        <td><input type="text" class="form-control" name="doT2Time"></td>
+
+                        <td>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="doT2Temp">
+                                <div class="input-group-addon">°C</div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="doT2dO">
+                                <div class="input-group-addon">mg/L</div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="doT2Strtn">
+                                <div class="input-group-addon">%</div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Trial 3</td>
+                        <td><input type="text" class="form-control" name="doT3Time" ></td>
+
+                        <td>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="doT3Temp">
+                                <div class="input-group-addon">°C</div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="doT3dO">
+                                <div class="input-group-addon">mg/L</div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="doT3Strtn">
+                                <div class="input-group-addon">%</div>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </fieldset>
+
+        <div id="g4FS3REF" class="ref"></div>
+        <fieldset id="g4FS3" class="container">
+            <h3 class="">pH</h3>
+
+            <div id="" class="table-responsive ">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Technique</th>
+                        <th>Time</th>
+                        <th>Reading 1</th>
+                        <th>Reading 2</th>
+                        <th>Reading 3</th>
+                        <th>Average</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr>
+                          <td>
+                            <select name="phTknque">
+                              <option value="lamotte">LaMotte wQ Kit</option>
+                              <option value=""></option>
+                            </select>
+                          </td>
+                          <td><input type="text" id="" class="form-control" name="phTime" placeholder=""></td>
+                          <td><input type="text" id="" class="form-control" name="phR1" placeholder=""></td>
+                          <td><input type="text" id="" class="form-control" name="phR2" placeholder=""></td>
+                          <td><input type="text" id="" class="form-control" name="phR3" placeholder=""></td>
+                          <td><input type="text" id="" class="form-control" name="phAvg" placeholder=""></td>
+                      </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </fieldset>
+
+        <div id="g4FS4REF" class="ref"></div>
+        <fieldset id="g4FS4" class="container">
+            <h3>Salinity and Turbidity</h3>
+
+            <div class="">
+                <h4>Salinity</h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Technique</th>
+                            <th>Time</th>
+                            <th>Reading 1</th>
+                            <th>Reading 2</th>
+                            <th>Reading 3</th>
+                            <th>Average</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr>
+                            <td>
+                              <select name="slntyTknque">
+                                <option value="lamotte">LaMotte wQ Kit</option>
+                                <option value=""></option>
+                              </select>
+                            </td>
+                            <td><input type="text" id="" class="form-control" name="slntyTime" placeholder=""></td>
+                            <td><input type="text" id="" class="form-control" name="slntyR1" placeholder=""></td>
+                            <td><input type="text" id="" class="form-control" name="slntyR2" placeholder=""></td>
+                            <td><input type="text" id="" class="form-control" name="slntyR3" placeholder=""></td>
+                            <td><input type="text" id="" class="form-control" name="slntyAvg" placeholder=""></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="">
+                <h4>Turbidity</h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Technique</th>
+                            <th>Time</th>
+                            <th>Reading 1</th>
+                            <th>Reading 2</th>
+                            <th>Reading 3</th>
+                            <th>Average</th>
+                            <th>Units</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr>
+                            <td>
+                              <select name="trbdTknque">
+                                  <option value="">Secchi Disk</option>
+                                  <option value="">Long Sight Tube</option>
+                                  <option value="">Short Sight Tube</option>
+                                  <option value="">Turbidimeter</option>
+                              </select>
+                            </td>
+                            <td><input type="text" class="form-control" name="trbdTime" placeholder=""></td>
+                            <td><input type="text" class="form-control" name="trbdR1" placeholder=""></td>
+                            <td><input type="text" class="form-control" name="trbdR2" placeholder=""></td>
+                            <td><input type="text" class="form-control" name="trbdR3" placeholder=""></td>
+                            <td><input type="text" class="form-control" name="trbdAvg" placeholder=""></td>
+                            <td>
+                              <select name="trbdUnits">
+                                <option value="ft/cm">ft/cm</option>
+                                <option value="jtu">JTUs</option>
+                                <option value="cm/meter">cm/meter</option>
+                                <option value="ntu">NTUs</option>
+                              </select>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </fieldset>
+    </section>
+</form>
+
+<section id="notificationPane" class="panel panel-default">
+  <div class="panel-heading">
+    Hub
+  </div>
+  <div class="panel-body">
+    <article id="notifHub">
+
+    </article>
+  </div>
+  <div class="panel-footer">
+    <article id="submitArea" class="">
+      <button id="submitFinal" class="btn btn-success btn-block">Submit Data</button>
+      <script>
+      $(document).ready(function(){
+        $("#submitFinal").click(function(){
+          var body = {};
+          $("form").find("input").each(function(){
+            var name = $(this).attr('name');
+            var val = $(this).val();
+            body[name] = val;
+          });
+          $.ajax({
+            url: '/form/submit',
+            method: 'POST',
+            data: {'form': body},
+            dataType: 'JSON'
+          })
+          .done(function(data){
+            console.log("yo");
+          });
+        });
+      });
+      </script>
+    </article>
+  </div>
+</section>
+
+<% include tools/calc %>

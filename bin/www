@@ -7,12 +7,12 @@
 var app = require('../app'),
     debug = require('debug')('untitled2:server'),
     http = require('http');
-
+app.set("trust proxy", true);
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '80');
+var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
@@ -20,6 +20,16 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
+
+//Create matching Socket.IO WebSockets server
+var io = require('socket.io')(server);
+io.on('connection', function(socket){
+  console.log("a user connected");
+  socket.on("config", function(val){
+    console.log("Configuration change recieved");
+    io.emit("config update", val);
+  });
+});
 
 /**
  * Listen on provided port, on all network interfaces.

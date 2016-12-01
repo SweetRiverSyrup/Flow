@@ -1,0 +1,90 @@
+<section data-backdrop class="panel-drawer-container closed">
+    <div class='pull-right panel panel-drawer'>
+        <div class="panel-drawer-body">
+            <div class="panel-drawer-head">
+                <div class="panel-drawer-title">
+                    Settings
+                </div>
+            </div>
+            <div>
+                <abbr title="This is the river you are currently at"><%= river %></abbr> / <abbr title="This is the name location you are at"><%= location %></abbr> / <abbr title="This is the name of the site that you are at"><%= site %></abbr>
+            </div>
+            <form class="form ">
+                <div class="form-group">
+                    <label>Change Your Group</label>
+                    <select id="groups" class="form-control">
+                        <option value=""></option>
+                        <option value="1">I'm in Group 1</option>
+                        <option value="2">I'm in Group 2</option>
+                        <option value="3">I'm in Group 3</option>
+                        <option value="4">I'm in Group 4</option>
+                        <option value="5">I'm in Group 5</option>
+                        <option value="6">I'm doing every Group</option>
+                    </select>
+                </div>
+                <script>
+                    $(document).ready(function () {
+                        $("#groups").change(function () {
+                            var g = $("#groups").val();
+                            switch (g) {
+                                case "1":
+                                    $("#g2, #g3, #g4, #g5").hide();
+                                    $("#g1").show().find("input, textarea, unit-sel").toggleAttr('required', true);
+                                    break;
+                                case "2":
+                                    $("#g1").hide();
+                                    $("#g3").hide();
+                                    $("#g4").hide();
+                                    $("#g5").hide();
+                                    $("#g2").show().find("input, textarea, unit-sel").toggleAttr('required', true);
+                                    break;
+                                case "3":
+                                    $("#g1, #g2, #g4, #g5").hide();
+                                    $("#g3").show().find("input, textarea, unit-sel").toggleAttr('required', true);
+                                    break;
+                                case "4":
+                                    $("#g1, #g2, #g3, #g5").hide();
+                                    $("#g4").show().find("input, textarea, unit-sel").toggleAttr('required', true);
+                                    break;
+                                case "5":
+                                    $("#g1, #g2, #g3, #g4").hide();
+                                    $("#g5").show().find("input, textarea, unit-sel").toggleAttr('required', true);
+                                    break;
+                                case "6":
+                                    $("#g1, #g2, #g3, #g4, #g5").show();
+                                    $("#g1, #g2, #g3, #g4, #g5").show().find("input, textarea, unit-sel").toggleAttr('required', true);
+                                    break;
+                                default:
+                                    $("#g1, #g2, #g3, #g4, #g5").find("input, textarea, unit-sel").toggleAttr('required', false);
+                            }
+                        });
+                    });
+
+                    $(function() {
+                        $("#accordion").accordion({
+                            collapsible: true,
+                            animate: false,
+                            active: false
+                        });
+                    });
+                </script>
+
+
+                <div id="accordion">
+                    <h3>Advanced Settings</h3>
+                    <div >
+                        <paper-button id="clearCache" class="clear-cache" raised><iron-icon icon="clear"></iron-icon> Clear cache and form data</paper-button>
+                        <!--<div class="btn-group" role="group" aria-label="...">
+                            <button type="button" id="changeThemeLight" class="btn btn-default">Light</button>
+                            <button type="button" class="btn btn-default " disabled>Middle</button>
+                            <button type="button" id="changeThemeDark" class="btn btn-default">Dark</button>
+                        </div>-->
+
+                    </div>
+                </div>
+            </form>
+
+            <paper-button class="drawer-toggle" raised>Close</paper-button>
+        </div>
+    </div>
+</section>

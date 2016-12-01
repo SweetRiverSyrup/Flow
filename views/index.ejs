@@ -1,16 +1,39 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <% include head %>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <section>
-      <form action="myaction" method="post">
-        <input type="text" id="test" name="test" class="" placeholder="Rasamafoo!"/>
-        <input type="submit" id="submit" name="submit" class="" value="Rasamafoo!"/>
-      </form>
-    </section>
+    <% include top %>
+    <article>
+    <form>
+        <section id="group1">
+          <input type="text" id="testInputOne" name="testInputOne"/>
+        </section>
+        <section id="group2">
+          <input type="text" id="testInputTwo" name="testInputTwo"/>
+        </section>
+        <section id="group3">
+
+        </section>
+        <section id="group4">
+
+        </section>
+        <section id="group5">
+
+        </section>
+    </form>
+    </article>
+
+    <script>
+    var socket = io();
+    socket.on('connect', function(){
+      console.log("Connected!");
+
+    });
+    socket.on("config update", function(formConfig){
+      console.log(JSON.parse(formConfig));
+    });
+    </script>
   </body>
 </html>

@@ -3,7 +3,7 @@
  */
 window.onload = function() {
     //$(".panel-drawer-container").trigger('drawer:close');
-    var form_items = $('form').find("input:not([type=radio], [type=checkbox]), textarea, unit-sel");
+    var form_items = $('form').find("input[name=StudentID],input:not([type=radio], [type=checkbox]), textarea, unit-sel");
     for(i=0;i<form_items.length;i++){
         item = $(form_items[i]);
         var lsItem = localStorage.getItem(item.attr('id'));

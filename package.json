@@ -4,11 +4,12 @@
     "Caitlin Chou",
     "Ian Fabricatore"
   ],
-  "version": "0.1.3",
+  "version": "0.2.3",
   "private": false,
   "scripts": {
     "start": "node ./bin/www",
-    "patch-release": "npm version patch && npm publish && git push --follow-tags"
+    "patch-release-script": "npm pack && npm publish",
+    "patch-release": "npm run-script patch-release-script"
   },
   "repository": {
     "type": "git",
@@ -21,12 +22,14 @@
     "debug": "~2.2.0",
     "ejs": "~2.4.1",
     "express": "^4.13.4",
-    "jquery": "^3.1.0",
+    "knex": "^0.12.6",
     "less": "^2.7.1",
     "morgan": "~1.7.0",
     "mysql": "^2.11.1",
+    "pdfkit": "^0.8.0",
     "request": "^2.73.0",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "socket.io": "^1.5.1"
   },
   "engines": {
     "node": "*"
@@ -42,7 +45,33 @@
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
     "gulp-rename": "^1.2.2",
+    "gulp-vulcanize": "^6.1.0",
     "qunitjs": "^2.0.1",
     "yargs": "^4.8.1"
-  }
+  },
+  "_id": "flowriverproject@0.2.3",
+  "_shasum": "29b988b6bf4c014685061fc4bbea0633edaa69c6",
+  "_from": "flowriverproject@latest",
+  "_npmVersion": "2.15.8",
+  "_nodeVersion": "4.4.7",
+  "_npmUser": {
+    "name": "ianfabs",
+    "email": "ianfabs@outlook.com"
+  },
+  "dist": {
+    "shasum": "29b988b6bf4c014685061fc4bbea0633edaa69c6",
+    "tarball": "https://registry.npmjs.org/flowriverproject/-/flowriverproject-0.2.3.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "ianfabs",
+      "email": "ianfabs@outlook.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/flowriverproject-0.2.3.tgz_1471468248011_0.9329090763349086"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/flowriverproject/-/flowriverproject-0.2.3.tgz"
 }

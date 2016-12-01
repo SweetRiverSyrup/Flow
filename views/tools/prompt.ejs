@@ -1,0 +1,42 @@
+<!-- Modal -->
+<div class="modal fade" id="studentCodePrompt" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">You must enter your student code before continuing</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <input type="text" id="studentCode"/>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Procede</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  $(document).ready( () => {
+    $("#studentCode").on('keyup', () => {
+      if($("#studentCode").val().length >=4 ){
+        $.ajax({
+          url: '/verify/student',
+          method: 'POST',
+          data: {studentCode : $("#studentCode").val()}
+        }).done(function(data){
+          if( data.exists == false ){
+            alert("Student Code not found :-(");
+          }else if( data.exists == true ){
+            alert("Yay!");
+          }
+        });
+        }
+      });
+
+
+  } );
+</script>
